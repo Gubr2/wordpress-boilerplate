@@ -1,0 +1,20 @@
+{
+  "name": "plugin-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build blocks/global.js blocks/boilerplate/boilerplate.js blocks/boilerplate/boilerplate-frontend.js",
+    "start": "wp-scripts start blocks/global.js blocks/boilerplate/boilerplate.js blocks/boilerplate/boilerplate-frontend.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wordpress/block-editor": "^10.3.0",
+    "@wordpress/components": "^21.3.0",
+    "@wordpress/hooks": "^3.20.0",
+    "@wordpress/scripts": "^24.3.0",
+    "passive-events-support": "^1.0.33"
+  }
+}

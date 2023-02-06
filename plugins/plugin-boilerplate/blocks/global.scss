@@ -1,0 +1,179 @@
+// // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // //
+// VARIABLES
+
+// ---> Colors
+$primary: #007cba; // Wordpress -> #007cba;
+$base: rgba(
+  $color: $primary,
+  $alpha: 0.1,
+);
+$grey: #ccd0d4;
+$darkGrey: #6e6e6e;
+$white: #fff;
+$black: #000;
+
+// ---> Utils
+$fullRadius: 0.5rem;
+$halfRadius: 0.25rem;
+
+///////////////////////////////////
+
+// // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // //
+// DEFAULTS
+
+html {
+  font-size: 62.5%;
+}
+
+// ---> Richtext
+
+[data-cb='richtext'] {
+  border-radius: 2px;
+  border: 1px solid #757575;
+  font-size: 13px;
+  padding: 4px 8px;
+  box-sizing: border-box;
+}
+
+// ----> Inner Block
+
+.cb__wrapper {
+  .block-editor-inserter__toggle {
+    // Čierny tlačítko pre pridávanie typov obsahu
+    display: none !important;
+  }
+  .block-list-appender {
+    position: relative !important;
+  }
+}
+
+// // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // //
+// COMPONENTS
+
+// ---> Wrapper
+
+.cb__wrapper {
+  box-sizing: border-box;
+  padding: 8rem 2rem 3rem 2rem;
+  background-color: $base;
+  border-radius: $fullRadius;
+  position: relative;
+  display: block;
+}
+
+.cb__name {
+  font-size: 1.6rem;
+  width: 100%;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: $fullRadius $fullRadius 0rem 0rem;
+  background-color: $primary;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  &::after {
+    content: 'Blok';
+    position: absolute;
+    left: 0;
+    top: 0rem;
+    transform: translateY(-25%);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    border-radius: $halfRadius;
+    color: rgba($color: #fff, $alpha: 0.75);
+    background-color: $primary;
+  }
+}
+
+// ---> Item
+
+.cb__item {
+  position: relative;
+  padding: 1.5rem;
+  background-color: $white;
+  border-radius: $halfRadius;
+  margin-bottom: 1rem;
+  border: 0.1rem solid $grey;
+}
+
+.cb__item__array {
+  position: relative;
+  padding: 1.5rem;
+  background-color: $white;
+  border-radius: $halfRadius;
+  margin-bottom: 1rem;
+  border: 0.1rem solid $grey;
+}
+
+// ---> Label
+
+.cb__label {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  &--1 {
+    font-weight: 700;
+    color: $primary;
+  }
+  &--2 {
+    font-weight: 500;
+    color: $primary;
+    // opacity: 0.75;
+  }
+  &--3 {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: $primary;
+    // opacity: 0.75;
+  }
+}
+
+// ---> Info
+
+.cb__info {
+  font-size: 1.3rem;
+  color: $black;
+  padding: 1rem;
+  margin: 0;
+  border-radius: $halfRadius;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border: 0.1rem solid $grey;
+  span {
+    color: $primary;
+  }
+}
+
+.cb__info__icon {
+  margin-right: 0.5rem;
+}
+
+// ---> Index
+.cb__index {
+  font-size: 1.1rem;
+  color: $darkGrey;
+  width: 2rem;
+  margin: 0;
+}
+
+// ---> Image Upload
+.cb__image__upload--uploaded {
+  position: relative;
+  cursor: pointer;
+  img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
