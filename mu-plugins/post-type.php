@@ -20,4 +20,6 @@ function post_types() {
   ));
 }
 
+add_action('init', 'post_types');
+
 ?>
