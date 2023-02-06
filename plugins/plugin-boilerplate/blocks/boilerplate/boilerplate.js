@@ -39,20 +39,20 @@ function EditComponent(_props) {
   return (
     <>
       {/* S použitím InnerBlocks */}
-      <Cb_wrapper name={cb_settings.title}>
+      {/* <Cb_wrapper name={cb_settings.title}>
         <Cb_item {...useBlockProps()}>
           <Cb_label text="Obsah" />
           <InnerBlocks renderAppender={() => <InnerBlocks.ButtonBlockAppender />} />
         </Cb_item>
-      </Cb_wrapper>
+      </Cb_wrapper> */}
 
       {/* Bez použitia InnerBlocks */}
-      {/* <Cb_wrapper name={cb_settings.title}>
+      <Cb_wrapper name={cb_settings.title}>
         <Cb_item>
           <Cb_label text="Boilerplate" />
           <TextControl />
         </Cb_item>
-      </Cb_wrapper> */}
+      </Cb_wrapper>
     </>
   )
 }
@@ -66,8 +66,8 @@ function EditComponent(_props) {
 
 function SaveComponent() {
   // ---> S použitím "InnerBlocks"
-  return <InnerBlocks.Content />
+  // return <InnerBlocks.Content />
 
   // ---> Bez použitia "InnerBlocks"
-  // return null
+  return null
 }
