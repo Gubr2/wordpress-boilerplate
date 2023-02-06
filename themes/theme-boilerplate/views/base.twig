@@ -1,0 +1,16 @@
+{# Head #}
+{% include 'shared/head.twig' %} 
+
+<body {{ function('body_class') }}> 
+
+{# Menu #}
+{% include 'shared/menu.twig' %}
+
+{# Container #}
+<div data-page='container'>
+  {% block container %}
+  <!-- Obsah stránky ide sem -->
+  {% endblock %}
+</div>
+
+{% include 'shared/footer.twig' %}

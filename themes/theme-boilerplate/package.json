@@ -1,0 +1,17 @@
+{
+  "name": "gubrica_boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@wordpress/scripts": "^20.0.2",
+    "include-media": "^1.4.10"
+  }
+}

@@ -1,0 +1,7 @@
+:root {
+  --base-max-width: 110rem;
+  --padding: 5rem;
+  @include media('<=lg') {
+    --padding: 2rem;
+  }
+}

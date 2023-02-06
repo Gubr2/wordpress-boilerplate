@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {# Search Engine - Description #}
+  {% if site.theme.theme_mods('meta').meta_description %}
+    <meta name="description" content="{{ site.theme.theme_mods('meta').meta_description }}">
+  {% endif %}
+  {# Social Media - Title #}
+  {% if site.theme.theme_mods('meta').og_title %}
+    <meta property="og:title" content="{{ site.theme.theme_mods('meta').og_title }}">
+  {% endif %}
+  {# Social Media - Type #}
+  {% if site.theme.theme_mods('meta').og_type %}
+  <meta property="og:type" content="{{ site.theme.theme_mods('meta').og_type }}" />
+  {% endif %}
+  {# Social Media - Description #}
+  {% if site.theme.theme_mods('meta').og_description %}
+    <meta property="og:description" content="{{ site.theme.theme_mods('meta').og_description }}">
+  {% endif %}
+  {# Social Media - Image #}
+  {% if site.theme.theme_mods('meta').og_image %}
+    <meta property="og:image" content="{{ site.theme.theme_mods('meta').og_image }}">
+  {% endif %}
+  {# Social Media - Url #}
+  {% if site.theme.theme_mods('meta').og_url %}
+    <meta property="og:url" content="{{ site.theme.theme_mods('meta').og_url }}">
+  {% endif %}
+  
+  {{ fn('wp_head') }}
+</head>

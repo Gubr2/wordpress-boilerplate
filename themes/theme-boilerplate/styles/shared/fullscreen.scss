@@ -1,0 +1,11 @@
+[data-fullscreen] {
+  position: relative;
+  width: 100vw;
+  // transform: translateX(calc((var(--base-max-width) - 100vw) / 2));
+  display: flex;
+  @media (max-width: calc(var(--base-max-width) + calc(var(--padding) * 2))) {
+    /* prettier-ignore */
+    transform: translateX(calc(var(--padding) * -1));
+    /* prettier-ignore */
+  }
+}
