@@ -47,6 +47,9 @@ html {
   .block-list-appender {
     position: relative !important;
   }
+  .block-editor-button-block-appender {
+    box-shadow: inset 0 0 0 1px rgba($color: $primary, $alpha: 0.5);
+  }
 }
 
 // // // // // // // // // // // // // // // // //
