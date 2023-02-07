@@ -12,7 +12,7 @@ let cb_settings = {
 
 wp.blocks.registerBlockType('categoryname/boilerplate', {
   title: cb_settings.title,
-  icon: 'layout',
+  icon: 'block-default',
   category: 'categoryname',
   attributes: {
     variable: {

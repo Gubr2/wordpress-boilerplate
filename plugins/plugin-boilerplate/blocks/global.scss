@@ -1,15 +1,18 @@
+@import '../../../themes/theme-boilerplate/styles/variables/responsive.scss';
+
 // // // // // // // // // // // // // // // // //
 // // // // // // // // // // // // // // // // //
 // VARIABLES
 
 // ---> Colors
-$primary: #007cba; // Wordpress -> #007cba;
+$primary: #5f76ff; // Wordpress -> #007cba;
 $base: rgba(
   $color: $primary,
   $alpha: 0.1,
 );
 $grey: #ccd0d4;
-$darkGrey: #6e6e6e;
+$midGrey: #9b9ea1;
+$darkGrey: #6c6f72;
 $white: #fff;
 $black: #000;
 
@@ -52,6 +55,10 @@ html {
   }
 }
 
+.components-base-control {
+  margin-bottom: 8px;
+}
+
 // // // // // // // // // // // // // // // // //
 // // // // // // // // // // // // // // // // //
 // COMPONENTS
@@ -65,18 +72,31 @@ html {
   border-radius: $fullRadius;
   position: relative;
   display: block;
+  &--2 {
+    background-color: rgba($color: $black, $alpha: 0.05);
+    .cb__name {
+      background-color: $darkGrey;
+      &::after {
+        content: 'Doplňkový blok';
+        background-color: $darkGrey;
+      }
+    }
+    .cb__label {
+      color: $darkGrey;
+    }
+  }
 }
 
 .cb__name {
   font-size: 1.6rem;
   width: 100%;
-  padding: 1.5rem 2rem 1.5rem 2rem;
+  padding: 1.75rem 2rem 1.25rem 2rem;
   margin: 0;
   box-sizing: border-box;
   border-radius: $fullRadius $fullRadius 0rem 0rem;
-  background-color: $primary;
   font-weight: bold;
   color: #fff;
+  background-color: $primary;
   position: absolute;
   top: 0;
   left: 0;
@@ -99,6 +119,7 @@ html {
 
 .cb__item {
   position: relative;
+  height: 100%;
   padding: 1.5rem;
   background-color: $white;
   border-radius: $halfRadius;
@@ -127,13 +148,13 @@ html {
   }
   &--2 {
     font-weight: 500;
-    color: $primary;
+    color: $darkGrey;
     // opacity: 0.75;
   }
   &--3 {
     font-weight: 500;
     font-size: 1.1rem;
-    color: $primary;
+    color: $darkGrey;
     // opacity: 0.75;
   }
 }
@@ -146,12 +167,15 @@ html {
   padding: 1rem;
   margin: 0;
   border-radius: $halfRadius;
-  background-color: #fff;
+  background-color: rgba($color: $primary, $alpha: 0.15);
   display: flex;
   align-items: center;
-  border: 0.1rem solid $grey;
+  // border: 0.1rem solid $grey;
   span {
     color: $primary;
+  }
+  &:not(:first-child) {
+    margin-top: 0.5rem;
   }
 }
 
@@ -177,6 +201,9 @@ html {
     right: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+  }
+  @include media('<=md') {
+    width: 100% !important;
   }
 }

@@ -82,6 +82,15 @@ function add_to_context( $context ) {
 
 add_filter( 'timber/context', 'add_to_context' );
 
+// SVG SUPPORT
+
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+
+add_filter('upload_mimes', 'cc_mime_types');
+
 // CUSTOMIZER
 
 function customizer( $wp_customize ){

@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "devDependencies": {
-    "@wordpress/scripts": "^20.0.2",
+  "dependencies": {
+    "@wordpress/scripts": "^24.3.0",
     "include-media": "^1.4.10"
   }
 }

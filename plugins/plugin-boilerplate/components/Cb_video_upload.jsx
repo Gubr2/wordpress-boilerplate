@@ -1,7 +1,7 @@
 import { MediaUpload } from '@wordpress/block-editor'
 import { ButtonGroup, Button, Icon } from '@wordpress/components'
 
-export default function Cb_image_upload(_props) {
+export default function Cb_video_upload(_props) {
   //
   // FUNCTIONS
   //
@@ -48,7 +48,9 @@ export default function Cb_image_upload(_props) {
                     height: _props.height,
                   }}
                 >
-                  <img src={_props.imageSrc} onClick={open} />
+                  <video onClick={open} controls key={_props.imageSrc}>
+                    <source src={_props.imageSrc} type="video/mp4" />
+                  </video>
                 </div>
                 {removeImage ? <DeleteButton /> : ''}
               </>

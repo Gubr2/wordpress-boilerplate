@@ -1,0 +1,1 @@
+import './boilerplateadditional-frontend.scss'
