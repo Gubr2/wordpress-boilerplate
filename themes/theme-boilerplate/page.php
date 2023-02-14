@@ -3,4 +3,4 @@
   $context = Timber::context();
   $context['post'] = new Timber\Post();
 
-  Timber::render('pages/page.twig', $context);
+  Timber::render('default/page.twig', $context);

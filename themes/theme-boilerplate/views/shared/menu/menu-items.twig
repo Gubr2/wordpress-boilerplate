@@ -1,0 +1,25 @@
+{% for item in header.items %}
+
+  {# With Dropdown #}
+  {% if item.children %}
+    <div class="menu__item menu__item--parent {% if item.current %}menu__item--current{% endif %}">
+      <a class="menu__link menu__item--parent__link" href="{{ item.link }}">{{ item.title }}<span class="menu__dropdown__icon material-symbols-outlined">expand_more</span></a>
+      <div class="menu__item__dropdown">
+        <div class="menu__item__dropdown__container">
+          {% for child in item.children %}
+          <div class="menu__item {% if child.current %}menu__item--current{% endif %}">
+            <a href="{{ child.link }}">{{ child.title }}</a>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+    
+  {# Without Dropdown #}
+  {% else %}
+    <div class="menu__item {% if item.current %}menu__item--current{% endif %}">
+      <a class="menu__link" href="{{ item.link }}">{{ item.title }}</a>
+    </div>
+  {% endif %}
+
+{% endfor %}

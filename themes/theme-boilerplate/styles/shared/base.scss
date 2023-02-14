@@ -1,5 +1,9 @@
 @import './settings.scss';
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
   // font-size: calc(100vw / 1920 * 10);
@@ -8,6 +12,7 @@ html {
 body {
   position: relative;
   width: 100vw;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -19,7 +24,6 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 0 var(--padding);
-  box-sizing: border-box;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -28,5 +32,4 @@ body {
   position: relative;
   width: 100%;
   max-width: var(--base-max-width);
-  box-sizing: border-box;
 }

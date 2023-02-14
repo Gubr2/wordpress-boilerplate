@@ -21,6 +21,7 @@ function custom_files() {
 
   // ---> External
   //  wp_enqueue_script('font_awesome', 'https://kit.fontawesome.com/c0ffcf9a0d.js');
+  wp_enqueue_style('material-icons', '//fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
   wp_enqueue_style('roboto', '//fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 }
 

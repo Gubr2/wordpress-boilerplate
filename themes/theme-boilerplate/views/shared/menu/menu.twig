@@ -1,0 +1,34 @@
+<nav class="menu" data-menu>
+
+  {# Container #}
+  <div class="menu__container">
+
+    <div class="menu__max-width">
+
+      {# ---> Logo #}
+      <a href="{{ site.url }}" class="menu__logo">
+        <img src="{{ custom_logo_url }}" alt="Logo">
+      </a>
+
+      {# ---> Desktop #}
+      <div class="menu__desktop">
+        {% include 'shared/menu/menu-items.twig' %}
+      </div>
+
+      {# ---> Mobile Menu Icon #}
+      <div class="menu__mobile__icon">
+        <div class="menu__mobile__icon__line"></div>
+        <div class="menu__mobile__icon__line"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  {# Mobile #}
+  <div class="menu__mobile">
+    <div class="menu__mobile__container">
+      {% include 'shared/menu/menu-items.twig' %}
+    </div>
+  </div>
+</nav>

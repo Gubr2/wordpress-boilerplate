@@ -84,9 +84,7 @@ class boilerplateadditional {
       'editor_script' => 'plugin_boilerplateadditional_script',
       'editor_style' => 'plugin_boilerplateadditional_style'
     ));
-  }
 
-  function renderCallback($attributes, $content) {
     wp_enqueue_script('plugin_boilerplateadditional-frontend_script', plugin_dir_url(__FILE__) . 'build/boilerplateadditional-frontend.js');
     wp_enqueue_style('plugin_boilerplateadditional-frontend_style', plugin_dir_url(__FILE__) . 'build/boilerplateadditional-frontend.css');
   }

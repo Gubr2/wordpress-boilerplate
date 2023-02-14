@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "@wordpress/scripts": "^24.3.0",
+    "gsap": "^3.11.4",
     "include-media": "^1.4.10"
   }
 }
