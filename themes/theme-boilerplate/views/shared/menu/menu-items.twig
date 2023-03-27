@@ -18,7 +18,7 @@
   {# Without Dropdown #}
   {% else %}
     <div class="menu__item {% if item.current %}menu__item--current{% endif %}">
-      <a class="menu__link" href="{{ item.link }}">{{ item.title }}</a>
+      <a class="menu__link" href="{{ item.link }}" {% if item.meta( '_menu_item_target' ) %}target="_blank"{% endif %}>{{ item.title }}</a>
     </div>
   {% endif %}
 

@@ -49,12 +49,12 @@ export default class Menu {
       if (this.flags.mobileMenu) {
         this.animateMenu('in')
         this.animateIcon('in')
-        document.body.style.overflowY = 'hidden'
+        document.documentElement.style.overflowY = 'hidden'
         this.flags.mobileMenu = false
       } else {
         this.animateMenu('out')
         this.animateIcon('out')
-        document.body.style.overflowY = 'scroll'
+        document.documentElement.style.overflowY = 'scroll'
         this.flags.mobileMenu = true
       }
     })
