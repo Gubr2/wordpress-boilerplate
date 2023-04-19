@@ -55,7 +55,8 @@ class boilerplate {
     register_block_type('categoryname/boilerplate', array(
       'render_callback' => [$this, 'renderCallback'],
       'editor_script' => 'plugin_boilerplate_script',
-      'editor_style' => 'plugin_boilerplate_style'
+      'editor_style' => 'plugin_boilerplate_style',
+      'category' => 'custom'
     ));
   }
 
@@ -82,7 +83,8 @@ class boilerplateadditional {
     register_block_type('additionalcategoryname/boilerplateadditional', array(
       'render_callback' => [$this, 'renderCallback'],
       'editor_script' => 'plugin_boilerplateadditional_script',
-      'editor_style' => 'plugin_boilerplateadditional_style'
+      'editor_style' => 'plugin_boilerplateadditional_style',
+      'category' => 'custom'
     ));
   }
 
