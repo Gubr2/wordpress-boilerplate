@@ -4,18 +4,22 @@
 // // // // // // // // // // // // // // // // //
 // VARIABLES
 
+// // // // // // // // // // // // // // // // //
 // ---> Colors
-$primary: #5f76ff; // Wordpress -> #007cba;
-$base: rgba(
-  $color: $primary,
+$color--primary: #007cba; // Wordpress -> #007cba;
+$color--additional: #6c6f72;
+$color--component: #0e9f65;
+$color--base: rgba(
+  $color: $color--primary,
   $alpha: 0.1,
 );
-$grey: #ccd0d4;
-$midGrey: #9b9ea1;
-$darkGrey: #6c6f72;
-$white: #fff;
-$black: #000;
+$color--grey: #ccd0d4;
+$color--midGrey: #9b9ea1;
+$color--darkGrey: #6c6f72;
+$color--white: #fff;
+$color--black: #000;
 
+// // // // // // // // // // // // // // // // //
 // ---> Utils
 $fullRadius: 0.5rem;
 $halfRadius: 0.25rem;
@@ -51,7 +55,7 @@ html {
     position: relative !important;
   }
   .block-editor-button-block-appender {
-    box-shadow: inset 0 0 0 1px rgba($color: $primary, $alpha: 0.5);
+    box-shadow: inset 0 0 0 1px rgba($color: $color--primary, $alpha: 0.5);
   }
 }
 
@@ -68,21 +72,34 @@ html {
 .cb__wrapper {
   box-sizing: border-box;
   padding: 8rem 2rem 3rem 2rem;
-  background-color: $base;
+  background-color: $color--base;
   border-radius: $fullRadius;
   position: relative;
   display: block;
   &--2 {
-    background-color: rgba($color: $black, $alpha: 0.05);
+    background-color: rgba($color: $color--black, $alpha: 0.05);
     .cb__name {
-      background-color: $darkGrey;
+      background-color: $color--additional;
       &::after {
         content: 'Doplňkový blok';
-        background-color: $darkGrey;
+        background-color: $color--additional;
       }
     }
     .cb__label {
-      color: $darkGrey;
+      color: $color--additional;
+    }
+  }
+  &--3 {
+    background-color: rgba($color: $color--black, $alpha: 0.05);
+    .cb__name {
+      background-color: $color--component;
+      &::after {
+        content: 'Komponent';
+        background-color: $color--component;
+      }
+    }
+    .cb__label {
+      color: $color--component;
     }
   }
 }
@@ -95,8 +112,8 @@ html {
   box-sizing: border-box;
   border-radius: $fullRadius $fullRadius 0rem 0rem;
   font-weight: bold;
-  color: #fff;
-  background-color: $primary;
+  color: $color--white;
+  background-color: $color--primary;
   position: absolute;
   top: 0;
   left: 0;
@@ -106,12 +123,12 @@ html {
     left: 0;
     top: 0rem;
     transform: translateY(-25%);
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1rem;
     padding: 0.5rem 2rem;
     border-radius: $halfRadius;
-    color: rgba($color: #fff, $alpha: 0.75);
-    background-color: $primary;
+    color: rgba($color: $color--white, $alpha: 0.75);
+    background-color: $color--primary;
   }
 }
 
@@ -121,19 +138,19 @@ html {
   position: relative;
   height: 100%;
   padding: 1.5rem;
-  background-color: $white;
+  background-color: $color--white;
   border-radius: $halfRadius;
   margin-bottom: 1rem;
-  border: 0.1rem solid $grey;
+  border: 0.1rem solid $color--grey;
 }
 
 .cb__item__array {
   position: relative;
   padding: 1.5rem;
-  background-color: $white;
+  background-color: $color--white;
   border-radius: $halfRadius;
   margin-bottom: 1rem;
-  border: 0.1rem solid $grey;
+  border: 0.1rem solid $color--grey;
 }
 
 // ---> Label
@@ -143,18 +160,18 @@ html {
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
   &--1 {
-    font-weight: 700;
-    color: $primary;
+    // font-weight: 700;
+    color: $color--primary;
   }
   &--2 {
-    font-weight: 500;
-    color: $darkGrey;
+    // font-weight: 500;
+    color: $color--darkGrey;
     // opacity: 0.75;
   }
   &--3 {
-    font-weight: 500;
+    // font-weight: 500;
     font-size: 1.1rem;
-    color: $darkGrey;
+    color: $color--darkGrey;
     // opacity: 0.75;
   }
 }
@@ -163,16 +180,16 @@ html {
 
 .cb__info {
   font-size: 1.3rem;
-  color: $black;
+  color: $color--black;
   padding: 1rem;
   margin: 0;
   border-radius: $halfRadius;
-  background-color: rgba($color: $primary, $alpha: 0.15);
+  background-color: rgba($color: $color--primary, $alpha: 0.15);
   display: flex;
   align-items: center;
-  // border: 0.1rem solid $grey;
+  // border: 0.1rem solid $color--grey;
   span {
-    color: $primary;
+    color: $color--primary;
   }
   &:not(:first-child) {
     margin-top: 0.5rem;
@@ -186,7 +203,7 @@ html {
 // ---> Index
 .cb__index {
   font-size: 1.1rem;
-  color: $darkGrey;
+  color: $color--darkGrey;
   width: 2rem;
   margin: 0;
 }

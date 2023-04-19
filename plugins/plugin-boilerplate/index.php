@@ -31,6 +31,10 @@ add_filter( 'block_categories_all' , function( $categories ) {
     'title' => 'Additional Category Name'
   );
 
+  $categories[] = array(
+    'slug'  => 'componentcategoryname',
+    'title' => 'Component Category Name'
+  );
 
   return $categories;
 
@@ -97,3 +101,33 @@ class boilerplateadditional {
 }
 
 $boilerplateadditional = new boilerplateadditional(); 
+
+// ---> boilerplatecomponent
+require_once plugin_dir_path(__FILE__) . 'blocks/boilerplatecomponent/boilerplatecomponent.php';
+
+class boilerplatecomponent {
+  function __construct() {
+    add_action('init', [$this, 'onInit']);
+  }
+
+  function onInit() {
+    wp_register_script('plugin_boilerplatecomponent_script', plugin_dir_url(__FILE__) . 'build/boilerplatecomponent.js', array('wp-blocks', 'wp-i18n', 'wp-editor'));
+    wp_register_style('plugin_boilerplatecomponent_style', plugin_dir_url(__FILE__) . 'build/boilerplatecomponent.css');
+
+    register_block_type('componentcategoryname/boilerplatecomponent', array(
+      'render_callback' => [$this, 'renderCallback'],
+      'editor_script' => 'plugin_boilerplatecomponent_script',
+      'editor_style' => 'plugin_boilerplatecomponent_style',
+      'category' => 'custom'
+    ));
+  }
+
+  function renderCallback($attributes, $content) {
+    wp_enqueue_script('plugin_boilerplatecomponent-frontend_script', plugin_dir_url(__FILE__) . 'build/boilerplatecomponent-frontend.js');
+    wp_enqueue_style('plugin_boilerplatecomponent-frontend_style', plugin_dir_url(__FILE__) . 'build/boilerplatecomponent-frontend.css');
+
+    return boilerplatecomponent($attributes, $content);
+  }
+}
+
+$boilerplatecomponent = new boilerplatecomponent(); 

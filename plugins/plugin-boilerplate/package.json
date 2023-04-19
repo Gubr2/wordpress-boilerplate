@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "config": {
-    "a": "blocks/boilerplate/boilerplate.js blocks/boilerplate/boilerplate-frontend.js",
-    "b": "blocks/boilerplateadditional/boilerplateadditional.js blocks/boilerplateadditional/boilerplateadditional-frontend.js"
+    "x": "blocks/boilerplate/boilerplate.js blocks/boilerplate/boilerplate-frontend.js",
+    "y": "blocks/boilerplateadditional/boilerplateadditional.js blocks/boilerplateadditional/boilerplateadditional-frontend.js",
+    "z": "blocks/boilerplatecomponent/boilerplatecomponent.js blocks/boilerplatecomponent/boilerplatecomponent-frontend.js"
   },
   "scripts": {
-    "build": "wp-scripts build blocks/global.js $npm_package_config_a $npm_package_config_b",
-    "start": "wp-scripts start blocks/global.js $npm_package_config_a $npm_package_config_b"
+    "build": "wp-scripts build blocks/global.js $npm_package_config_x $npm_package_config_y $npm_package_config_z",
+    "start": "wp-scripts start blocks/global.js $npm_package_config_x $npm_package_config_y $npm_package_config_z"
   },
   "keywords": [],
   "author": "",
