@@ -35,7 +35,7 @@ export default function Cb_image_upload(_props) {
       <>
         <MediaUpload
           onSelect={(_image) => {
-            onFileSelect(_image.url, index)
+            onFileSelect(_image, index)
           }}
           value={1}
           render={({ open }) => {
@@ -61,7 +61,7 @@ export default function Cb_image_upload(_props) {
     return (
       <MediaUpload
         onSelect={(_image) => {
-          onFileSelect(_image.url, index)
+          onFileSelect(_image, index)
         }}
         value={1}
         render={({ open }) => (
