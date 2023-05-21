@@ -14,6 +14,9 @@ if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 wp_enqueue_script('global_plugin_scripts', plugin_dir_url(__FILE__) . 'build/global.js');
 wp_enqueue_style('global_plugin_styles', plugin_dir_url(__FILE__) . 'build/global.css');
 
+// ---> Custom Blocks Styles
+wp_enqueue_style('custom-blocks_plugin_styles', plugin_dir_url(__FILE__) . 'build/custom-blocks.css');
+
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // CATEGORIES
@@ -22,112 +25,57 @@ wp_enqueue_style('global_plugin_styles', plugin_dir_url(__FILE__) . 'build/globa
 add_filter( 'block_categories_all' , function( $categories ) {
 
   $categories[] = array(
-    'slug'  => 'categoryname',
-    'title' => 'Category Name'
+    'slug'  => 'primary',
+    'title' => 'Primary Boilerplate Blocks Category'
   );
 
   $categories[] = array(
-    'slug'  => 'additionalcategoryname',
-    'title' => 'Additional Category Name'
-  );
-
-  $categories[] = array(
-    'slug'  => 'componentcategoryname',
-    'title' => 'Component Category Name'
+    'slug'  => 'additional',
+    'title' => 'Additional Boilerplate Blocks Category'
   );
 
   return $categories;
-
 });
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // BLOCKS
 
-// ---> boilerplate
-require_once plugin_dir_path(__FILE__) . 'blocks/boilerplate/boilerplate.php';
+// ---> Template Class
 
-class boilerplate {
-  function __construct() {
+class RegisterBlock {
+  function __construct($name, $category) {
+
+    // [] Variables
+    $this->name = $name;
+    $this->category = $category;
+
+    // [] Init Functions
+    require_once plugin_dir_path(__FILE__) . "blocks/{$this->name}/{$this->name}.php";
     add_action('init', [$this, 'onInit']);
   }
 
   function onInit() {
-    wp_register_script('plugin_boilerplate_script', plugin_dir_url(__FILE__) . 'build/boilerplate.js', array('wp-blocks', 'wp-i18n', 'wp-editor'));
-    wp_register_style('plugin_boilerplate_style', plugin_dir_url(__FILE__) . 'build/boilerplate.css');
+    wp_register_script("plugin_{$this->name}_script", plugin_dir_url(__FILE__) . "build/{$this->name}.js", array("wp-blocks", "wp-i18n", "wp-editor"));
+    wp_register_style("plugin_{$this->name}_style", plugin_dir_url(__FILE__) . "build/{$this->name}.css");
 
-    register_block_type('categoryname/boilerplate', array(
-      'render_callback' => [$this, 'renderCallback'],
-      'editor_script' => 'plugin_boilerplate_script',
-      'editor_style' => 'plugin_boilerplate_style',
-      'category' => 'custom'
+    register_block_type("{$this->category}/{$this->name}", array(
+      "render_callback" => [$this, "renderCallback"],
+      "editor_script" => "plugin_{$this->name}_script",
+      "editor_style" => "plugin_{$this->name}_style",
+      "category" => "custom"
     ));
   }
 
   function renderCallback($attributes, $content) {
-    wp_enqueue_script('plugin_boilerplate-frontend_script', plugin_dir_url(__FILE__) . 'build/boilerplate-frontend.js');
-    wp_enqueue_style('plugin_boilerplate-frontend_style', plugin_dir_url(__FILE__) . 'build/boilerplate-frontend.css');
+    wp_enqueue_script("plugin_{$this->name}-frontend_script", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.js");
+    wp_enqueue_style("plugin_{$this->name}-frontend_style", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.css");
 
     return boilerplate($attributes, $content);
   }
 }
 
-$boilerplate = new boilerplate(); 
+// ---> Register
 
-// ---> boilerplateadditional
-class boilerplateadditional {
-  function __construct() {
-    add_action('init', [$this, 'onInit']);
-  }
-
-  function onInit() {
-    wp_register_script('plugin_boilerplateadditional_script', plugin_dir_url(__FILE__) . 'build/boilerplateadditional.js', array('wp-blocks', 'wp-i18n', 'wp-editor'));
-    wp_register_style('plugin_boilerplateadditional_style', plugin_dir_url(__FILE__) . 'build/boilerplateadditional.css');
-
-    register_block_type('additionalcategoryname/boilerplateadditional', array(
-      'render_callback' => [$this, 'renderCallback'],
-      'editor_script' => 'plugin_boilerplateadditional_script',
-      'editor_style' => 'plugin_boilerplateadditional_style',
-      'category' => 'custom'
-    ));
-  }
-
-  function renderCallback($attributes, $content) {
-    wp_enqueue_script('plugin_boilerplateadditional-frontend_script', plugin_dir_url(__FILE__) . 'build/boilerplateadditional-frontend.js');
-    wp_enqueue_style('plugin_boilerplateadditional-frontend_style', plugin_dir_url(__FILE__) . 'build/boilerplateadditional-frontend.css');
-
-    return $content;
-  }
-}
-
-$boilerplateadditional = new boilerplateadditional(); 
-
-// ---> boilerplatecomponent
-require_once plugin_dir_path(__FILE__) . 'blocks/boilerplatecomponent/boilerplatecomponent.php';
-
-class boilerplatecomponent {
-  function __construct() {
-    add_action('init', [$this, 'onInit']);
-  }
-
-  function onInit() {
-    wp_register_script('plugin_boilerplatecomponent_script', plugin_dir_url(__FILE__) . 'build/boilerplatecomponent.js', array('wp-blocks', 'wp-i18n', 'wp-editor'));
-    wp_register_style('plugin_boilerplatecomponent_style', plugin_dir_url(__FILE__) . 'build/boilerplatecomponent.css');
-
-    register_block_type('componentcategoryname/boilerplatecomponent', array(
-      'render_callback' => [$this, 'renderCallback'],
-      'editor_script' => 'plugin_boilerplatecomponent_script',
-      'editor_style' => 'plugin_boilerplatecomponent_style',
-      'category' => 'custom'
-    ));
-  }
-
-  function renderCallback($attributes, $content) {
-    wp_enqueue_script('plugin_boilerplatecomponent-frontend_script', plugin_dir_url(__FILE__) . 'build/boilerplatecomponent-frontend.js');
-    wp_enqueue_style('plugin_boilerplatecomponent-frontend_style', plugin_dir_url(__FILE__) . 'build/boilerplatecomponent-frontend.css');
-
-    return boilerplatecomponent($attributes, $content);
-  }
-}
-
-$boilerplatecomponent = new boilerplatecomponent(); 
+new RegisterBlock('boilerplate', 'primary');
+new RegisterBlock('boilerplateadditional', 'additional');

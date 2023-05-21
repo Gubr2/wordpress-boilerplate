@@ -1,0 +1,45 @@
+$color--primary: #000;
+$color--horizontal-rule: #e0e0e0;
+$color--input: #949494;
+$color--label: #1e1e1e;
+
+// // // // // // // // // // // // // // // //
+// WRAPPER
+.cb__wrapper {
+  border: 1px solid var(--wp--preset--color--black);
+  border-radius: 3px;
+  padding: 20px;
+  margin: 10px 0;
+  // ---> Name
+  .cb__name {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+  }
+  // ---> Item
+  .cb__item {
+    &:not(:last-child) {
+      border-bottom: 1px solid $color--horizontal-rule;
+    }
+  }
+  // ---> Rich Text
+  .rich-text {
+    padding: 5px;
+    border: 1px solid $color--input;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+}
+
+// // // // // // // // // // // // // // // //
+// ITEM
+.cb__item {
+  padding: 0 0 10px 0;
+}
+
+// // // // // // // // // // // // // // // //
+// LABEL
+.cb__label {
+  font-size: 13px;
+  color: $color--label;
+}

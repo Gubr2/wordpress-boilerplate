@@ -1,19 +1,23 @@
 import './boilerplate.scss'
 
+// ---> Wordpress
 import { TextControl } from '@wordpress/components'
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor'
-import Cb_wrapper from '../../components/Cb_wrapper'
-import Cb_label from '../../components/Cb_label'
-import Cb_item from '../../components/Cb_item'
+import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor'
+import { registerBlockType } from '@wordpress/blocks'
 
-let cb_settings = {
+// ---> Custom
+import { Wrapper, Item, Label } from '../../components/custom-blocks'
+
+// ---> Settings
+const cb_settings = {
   title: 'Boilerplate',
 }
 
-wp.blocks.registerBlockType('categoryname/boilerplate', {
+// ---> Register
+registerBlockType('primary/boilerplate', {
   title: cb_settings.title,
   icon: 'block-default',
-  category: 'categoryname',
+  category: 'primary',
   attributes: {
     variable: {
       type: 'string',
@@ -39,20 +43,24 @@ function EditComponent(_props) {
   return (
     <>
       {/* S použitím InnerBlocks */}
-      {/* <Cb_wrapper name={cb_settings.title}>
-        <Cb_item {...useBlockProps()}>
-          <Cb_label text="Obsah" />
+      {/* <Wrapper name={cb_settings.title}>
+        <Item>
+          <Label>Label</Label>
           <InnerBlocks renderAppender={() => <InnerBlocks.ButtonBlockAppender />} />
-        </Cb_item>
-      </Cb_wrapper> */}
+        </Item>
+      </Wrapper> */}
 
       {/* Bez použitia InnerBlocks */}
-      <Cb_wrapper name={cb_settings.title}>
-        <Cb_item>
-          <Cb_label text="Boilerplate" />
+      <Wrapper name={cb_settings.title}>
+        <Item>
+          <Label>Label</Label>
+          <RichText inlineToolbar />
+        </Item>
+        <Item>
+          <Label>Label</Label>
           <TextControl />
-        </Cb_item>
-      </Cb_wrapper>
+        </Item>
+      </Wrapper>
     </>
   )
 }

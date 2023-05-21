@@ -1,226 +1,232 @@
 @import '../../../themes/theme-boilerplate/styles/variables/responsive.scss';
 
-// // // // // // // // // // // // // // // // //
-// // // // // // // // // // // // // // // // //
-// VARIABLES
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+// OLD
 
-// // // // // // // // // // // // // // // // //
-// ---> Colors
-$color--primary: #007cba; // Wordpress -> #007cba;
-$color--additional: #6c6f72;
-$color--component: #0e9f65;
-$color--base: rgba(
-  $color: $color--primary,
-  $alpha: 0.1,
-);
-$color--grey: #ccd0d4;
-$color--midGrey: #9b9ea1;
-$color--darkGrey: #6c6f72;
-$color--white: #fff;
-$color--black: #000;
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
+// // VARIABLES
 
-// // // // // // // // // // // // // // // // //
-// ---> Utils
-$fullRadius: 0.5rem;
-$halfRadius: 0.25rem;
+// // // // // // // // // // // // // // // // // //
+// // ---> Colors
+// $color--primary: #007cba; // Wordpress -> #007cba;
+// $color--additional: #6c6f72;
+// $color--component: #0e9f65;
+// $color--base: rgba(
+//   $color: $color--primary,
+//   $alpha: 0.1,
+// );
+// $color--grey: #ccd0d4;
+// $color--midGrey: #9b9ea1;
+// $color--darkGrey: #6c6f72;
+// $color--white: #fff;
+// $color--black: #000;
 
-///////////////////////////////////
+// // // // // // // // // // // // // // // // // //
+// // ---> Utils
+// $fullRadius: 0.5rem;
+// $halfRadius: 0.25rem;
 
-// // // // // // // // // // // // // // // // //
-// // // // // // // // // // // // // // // // //
-// DEFAULTS
+// ///////////////////////////////////
 
-html {
-  font-size: 62.5%;
-}
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
+// // DEFAULTS
 
-// ---> Richtext
+// html {
+//   font-size: 62.5%;
+// }
 
-[data-cb='richtext'] {
-  border-radius: 2px;
-  border: 1px solid #757575;
-  font-size: 13px;
-  padding: 4px 8px;
-  box-sizing: border-box;
-}
+// // ---> Richtext
 
-// ----> Inner Block
+// [data-cb='richtext'] {
+//   border-radius: 2px;
+//   border: 1px solid #757575;
+//   font-size: 13px;
+//   padding: 4px 8px;
+//   box-sizing: border-box;
+// }
 
-.cb__wrapper {
-  .block-editor-inserter__toggle {
-    // Čierny tlačítko pre pridávanie typov obsahu
-    display: none !important;
-  }
-  .block-list-appender {
-    position: relative !important;
-  }
-  .block-editor-button-block-appender {
-    box-shadow: inset 0 0 0 1px rgba($color: $color--primary, $alpha: 0.5);
-  }
-}
+// // ----> Inner Block
 
-.components-base-control {
-  margin-bottom: 8px;
-}
+// .cb__wrapper {
+//   .block-editor-inserter__toggle {
+//     // Čierny tlačítko pre pridávanie typov obsahu
+//     display: none !important;
+//   }
+//   .block-list-appender {
+//     position: relative !important;
+//   }
+//   .block-editor-button-block-appender {
+//     box-shadow: inset 0 0 0 1px rgba($color: $color--primary, $alpha: 0.5);
+//   }
+// }
 
-// // // // // // // // // // // // // // // // //
-// // // // // // // // // // // // // // // // //
-// COMPONENTS
+// .components-base-control {
+//   margin-bottom: 8px;
+// }
 
-// ---> Wrapper
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
+// // COMPONENTS
 
-.cb__wrapper {
-  box-sizing: border-box;
-  padding: 8rem 2rem 3rem 2rem;
-  background-color: $color--base;
-  border-radius: $fullRadius;
-  position: relative;
-  display: block;
-  &--2 {
-    background-color: rgba($color: $color--black, $alpha: 0.05);
-    .cb__name {
-      background-color: $color--additional;
-      &::after {
-        content: 'Doplňkový blok';
-        background-color: $color--additional;
-      }
-    }
-    .cb__label {
-      color: $color--additional;
-    }
-  }
-  &--3 {
-    background-color: rgba($color: $color--black, $alpha: 0.05);
-    .cb__name {
-      background-color: $color--component;
-      &::after {
-        content: 'Komponent';
-        background-color: $color--component;
-      }
-    }
-    .cb__label {
-      color: $color--component;
-    }
-  }
-}
+// // ---> Wrapper
 
-.cb__name {
-  font-size: 1.6rem;
-  width: 100%;
-  padding: 1.75rem 2rem 1.25rem 2rem;
-  margin: 0;
-  box-sizing: border-box;
-  border-radius: $fullRadius $fullRadius 0rem 0rem;
-  font-weight: bold;
-  color: $color--white;
-  background-color: $color--primary;
-  position: absolute;
-  top: 0;
-  left: 0;
-  &::after {
-    content: 'Blok';
-    position: absolute;
-    left: 0;
-    top: 0rem;
-    transform: translateY(-25%);
-    font-weight: 400;
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
-    border-radius: $halfRadius;
-    color: rgba($color: $color--white, $alpha: 0.75);
-    background-color: $color--primary;
-  }
-}
+// .cb__wrapper {
+//   box-sizing: border-box;
+//   padding: 8rem 2rem 3rem 2rem;
+//   background-color: $color--base;
+//   border-radius: $fullRadius;
+//   position: relative;
+//   display: block;
+//   &--2 {
+//     background-color: rgba($color: $color--black, $alpha: 0.05);
+//     .cb__name {
+//       background-color: $color--additional;
+//       &::after {
+//         content: 'Doplňkový blok';
+//         background-color: $color--additional;
+//       }
+//     }
+//     .cb__label {
+//       color: $color--additional;
+//     }
+//   }
+//   &--3 {
+//     background-color: rgba($color: $color--black, $alpha: 0.05);
+//     .cb__name {
+//       background-color: $color--component;
+//       &::after {
+//         content: 'Komponent';
+//         background-color: $color--component;
+//       }
+//     }
+//     .cb__label {
+//       color: $color--component;
+//     }
+//   }
+// }
 
-// ---> Item
+// .cb__name {
+//   font-size: 1.6rem;
+//   width: 100%;
+//   padding: 1.75rem 2rem 1.25rem 2rem;
+//   margin: 0;
+//   box-sizing: border-box;
+//   border-radius: $fullRadius $fullRadius 0rem 0rem;
+//   font-weight: bold;
+//   color: $color--white;
+//   background-color: $color--primary;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   &::after {
+//     content: 'Blok';
+//     position: absolute;
+//     left: 0;
+//     top: 0rem;
+//     transform: translateY(-25%);
+//     font-weight: 400;
+//     font-size: 1rem;
+//     padding: 0.5rem 2rem;
+//     border-radius: $halfRadius;
+//     color: rgba($color: $color--white, $alpha: 0.75);
+//     background-color: $color--primary;
+//   }
+// }
 
-.cb__item {
-  position: relative;
-  height: 100%;
-  padding: 1.5rem;
-  background-color: $color--white;
-  border-radius: $halfRadius;
-  margin-bottom: 1rem;
-  border: 0.1rem solid $color--grey;
-}
+// // ---> Item
 
-.cb__item__array {
-  position: relative;
-  padding: 1.5rem;
-  background-color: $color--white;
-  border-radius: $halfRadius;
-  margin-bottom: 1rem;
-  border: 0.1rem solid $color--grey;
-}
+// .cb__item {
+//   position: relative;
+//   height: 100%;
+//   padding: 1.5rem;
+//   background-color: $color--white;
+//   border-radius: $halfRadius;
+//   margin-bottom: 1rem;
+//   border: 0.1rem solid $color--grey;
+// }
 
-// ---> Label
+// .cb__item__array {
+//   position: relative;
+//   padding: 1.5rem;
+//   background-color: $color--white;
+//   border-radius: $halfRadius;
+//   margin-bottom: 1rem;
+//   border: 0.1rem solid $color--grey;
+// }
 
-.cb__label {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
-  &--1 {
-    // font-weight: 700;
-    color: $color--primary;
-  }
-  &--2 {
-    // font-weight: 500;
-    color: $color--darkGrey;
-    // opacity: 0.75;
-  }
-  &--3 {
-    // font-weight: 500;
-    font-size: 1.1rem;
-    color: $color--darkGrey;
-    // opacity: 0.75;
-  }
-}
+// // ---> Label
 
-// ---> Info
+// .cb__label {
+//   margin-top: 0;
+//   margin-bottom: 0.5rem;
+//   font-size: 1.3rem;
+//   &--1 {
+//     // font-weight: 700;
+//     color: $color--primary;
+//   }
+//   &--2 {
+//     // font-weight: 500;
+//     color: $color--darkGrey;
+//     // opacity: 0.75;
+//   }
+//   &--3 {
+//     // font-weight: 500;
+//     font-size: 1.1rem;
+//     color: $color--darkGrey;
+//     // opacity: 0.75;
+//   }
+// }
 
-.cb__info {
-  font-size: 1.3rem;
-  color: $color--black;
-  padding: 1rem;
-  margin: 0;
-  border-radius: $halfRadius;
-  background-color: rgba($color: $color--primary, $alpha: 0.15);
-  display: flex;
-  align-items: center;
-  // border: 0.1rem solid $color--grey;
-  span {
-    color: $color--primary;
-  }
-  &:not(:first-child) {
-    margin-top: 0.5rem;
-  }
-}
+// // ---> Info
 
-.cb__info__icon {
-  margin-right: 0.5rem;
-}
+// .cb__info {
+//   font-size: 1.3rem;
+//   color: $color--black;
+//   padding: 1rem;
+//   margin: 0;
+//   border-radius: $halfRadius;
+//   background-color: rgba($color: $color--primary, $alpha: 0.15);
+//   display: flex;
+//   align-items: center;
+//   // border: 0.1rem solid $color--grey;
+//   span {
+//     color: $color--primary;
+//   }
+//   &:not(:first-child) {
+//     margin-top: 0.5rem;
+//   }
+// }
 
-// ---> Index
-.cb__index {
-  font-size: 1.1rem;
-  color: $color--darkGrey;
-  width: 2rem;
-  margin: 0;
-}
+// .cb__info__icon {
+//   margin-right: 0.5rem;
+// }
 
-// ---> Image Upload
-.cb__image__upload--uploaded {
-  position: relative;
-  cursor: pointer;
-  img {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  @include media('<=md') {
-    width: 100% !important;
-  }
-}
+// // ---> Index
+// .cb__index {
+//   font-size: 1.1rem;
+//   color: $color--darkGrey;
+//   width: 2rem;
+//   margin: 0;
+// }
+
+// // ---> Image Upload
+// .cb__image__upload--uploaded {
+//   position: relative;
+//   cursor: pointer;
+//   img {
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+//   @include media('<=md') {
+//     width: 100% !important;
+//   }
+// }

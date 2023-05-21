@@ -234,14 +234,19 @@ function prettyPrint($a, $t='pre') {echo "<$t>".print_r($a,1)."</$t>";}
 
 // ALL IN ONE MIGRATE - EXCLUDE FOLDERS
 
-add_filter( 'ai1wm_exclude_themes_from_export',
+add_filter( 'ai1wm_exclude_content_from_export',
 
 function ( $exclude_filters ) {
-  $template_name = 'template-name';
+  $theme_name = '';
+  $plugin_name = '';
 
-  $exclude_filters[] = $template_name . '/node_modules';
-  $exclude_filters[] = $template_name . '/styles';
-  $exclude_filters[] = $template_name . '/src';
+  // ---> Theme Files
+  $exclude_filters[] = 'themes/' . $theme_name . '/node_modules';
+  $exclude_filters[] = 'themes/' . $theme_name . '/styles';
+  $exclude_filters[] = 'themes/' . $theme_name . '/src';
+
+  // ---> Plugin Files
+  $exclude_filters[] = 'plugins/' . $plugin_name . '/node_modules';
   
   return $exclude_filters;
 

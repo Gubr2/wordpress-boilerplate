@@ -1,28 +1,25 @@
 import './boilerplateadditional.scss'
 
-import { Flex, FlexBlock, TextControl } from '@wordpress/components'
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor'
-import Cb_wrapper from '../../components/Cb_wrapper'
-import Cb_label from '../../components/Cb_label'
-import Cb_item from '../../components/Cb_item'
-import Cb_image_upload from '../../components/Cb_image_upload'
+// ---> Wordpress
+import { TextControl } from '@wordpress/components'
+import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor'
+import { registerBlockType } from '@wordpress/blocks'
 
-let cb_settings = {
+// ---> Custom
+import { Wrapper, Item, Label } from '../../components/custom-blocks'
+
+// ---> Settings
+const cb_settings = {
   title: 'Boilerplate Additional',
 }
 
-wp.blocks.registerBlockType('additionalcategoryname/boilerplateadditional', {
+// ---> Register
+registerBlockType('additional/boilerplateadditional', {
   title: cb_settings.title,
-  icon: 'table-row-after',
-  category: 'additionalcategoryname',
+  icon: 'block-default',
+  category: 'additional',
   attributes: {
-    img: {
-      type: 'string',
-    },
-    count: {
-      type: 'string',
-    },
-    description: {
+    variable: {
       type: 'string',
     },
   },
@@ -44,11 +41,23 @@ function EditComponent(_props) {
   // MAIN COMPONENT
   //
   return (
-    <Cb_wrapper name={cb_settings.title} level={2}>
-      <Cb_item>
-        <Cb_label text="Doplňkový blok" />
-      </Cb_item>
-    </Cb_wrapper>
+    <>
+      {/* S použitím InnerBlocks */}
+      {/* <Wrapper name={cb_settings.title}>
+        <Item>
+          <Label>Label</Label>
+          <InnerBlocks renderAppender={() => <InnerBlocks.ButtonBlockAppender />} />
+        </Item>
+      </Wrapper> */}
+
+      {/* Bez použitia InnerBlocks */}
+      <Wrapper name={cb_settings.title}>
+        <Item>
+          <Label>Label</Label>
+          <RichText inlineToolbar />
+        </Item>
+      </Wrapper>
+    </>
   )
 }
 
@@ -59,10 +68,10 @@ function EditComponent(_props) {
 // // // // // // // // // // // // // // // // // // //
 // SAVE
 
-function SaveComponent(_props) {
-  return (
-    <div class="boilerplateadditional">
-      <p>Additional Boilerplate</p>
-    </div>
-  )
+function SaveComponent() {
+  // ---> S použitím "InnerBlocks"
+  // return <InnerBlocks.Content />
+
+  // ---> Bez použitia "InnerBlocks"
+  return null
 }
