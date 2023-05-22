@@ -14,9 +14,6 @@ if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 wp_enqueue_script('global_plugin_scripts', plugin_dir_url(__FILE__) . 'build/global.js');
 wp_enqueue_style('global_plugin_styles', plugin_dir_url(__FILE__) . 'build/global.css');
 
-// ---> Custom Blocks Styles
-wp_enqueue_style('custom-blocks_plugin_styles', plugin_dir_url(__FILE__) . 'build/custom-blocks.css');
-
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // CATEGORIES

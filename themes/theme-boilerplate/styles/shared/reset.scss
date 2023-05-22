@@ -122,3 +122,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+// ---> Odstránenie "Ghost" imagu pri ťahaní myšky
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
