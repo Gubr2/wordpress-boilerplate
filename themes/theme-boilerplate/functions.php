@@ -240,6 +240,9 @@ function ( $exclude_filters ) {
   $theme_name = '';
   $plugin_name = '';
 
+  // ---> Main Files
+  $exclude_filters[] = '.git';
+
   // ---> Theme Files
   $exclude_filters[] = 'themes/' . $theme_name . '/node_modules';
   $exclude_filters[] = 'themes/' . $theme_name . '/styles';

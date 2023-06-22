@@ -68,7 +68,8 @@ class RegisterBlock {
     wp_enqueue_script("plugin_{$this->name}-frontend_script", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.js");
     wp_enqueue_style("plugin_{$this->name}-frontend_style", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.css");
 
-    return boilerplate($attributes, $content);
+    $name = "{$this->name}";
+    return $name($attributes, $content);
   }
 }
 
