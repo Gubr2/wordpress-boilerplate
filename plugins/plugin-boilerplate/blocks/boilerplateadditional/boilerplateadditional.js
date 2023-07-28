@@ -51,7 +51,7 @@ function EditComponent(_props) {
       </Wrapper> */}
 
       {/* Bez použitia InnerBlocks */}
-      <Wrapper name={cb_settings.title}>
+      <Wrapper isAdditional>
         <Item>
           <Label>Label</Label>
           <RichText inlineToolbar />

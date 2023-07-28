@@ -1,5 +1,5 @@
 :root {
-  --base-max-width: 1760px; // ---> ZMENIŤ AJ V SÚBORE fullscreen.scss !!!
+  --base-max-width: 1760px;
   --padding: 5rem;
   @include media('<=lg') {
     --padding: 2rem;

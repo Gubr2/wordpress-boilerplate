@@ -1,12 +1,38 @@
+import { useState } from 'react'
+import { MediaUpload } from '@wordpress/block-editor'
+import { Button, Icon } from '@wordpress/components'
+
 // // // // // // // // // // // // // // // //
 // // // // // // // // // // // // // // // //
 // WRAPPER
 
 export function Wrapper(_props) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleOpen = () => {
+    if (isOpen) {
+      setIsOpen(false)
+    } else {
+      setIsOpen(true)
+    }
+  }
+
   return (
-    <div className="cb__wrapper">
-      <p className="cb__name">{_props.name}</p>
-      {_props.children}
+    <div className={`cb__wrapper ${_props.isAdditional ? 'cb__wrapper--additional' : ''}`} draggable>
+      {_props.name ? (
+        <div className="cb__name" onClick={handleOpen}>
+          <p>{_props.name}</p>
+          <Icon icon={isOpen ? 'arrow-up-alt2' : 'arrow-down-alt2'} />
+        </div>
+      ) : null}
+      <div
+        className="cb__content"
+        style={{
+          display: isOpen ? 'block' : 'none',
+        }}
+      >
+        {_props.children}
+      </div>
     </div>
   )
 }
@@ -29,12 +55,17 @@ export function Label(_props) {
 
 // // // // // // // // // // // // // // // //
 // // // // // // // // // // // // // // // //
-// IMAGE
-export function Image(_props) {
+// MEDIA
+export function Media(_props) {
   // ---> Funtions
   const onFileSelect = _props.onFileSelect
-  const removeImage = _props.removeImage
+  const url = _props.url
+  const filename = _props.filename
+  const remove = _props.remove
   const index = _props.index
+  const type = _props.type
+  const textAdd = _props.textAdd
+  const textRemove = _props.textRemove
 
   const DeleteButton = () => {
     return (
@@ -45,56 +76,102 @@ export function Image(_props) {
           }}
           isSecondary
           isDestructive
-          style={{ marginTop: '10px', style: removeImage ? 'block' : 'none' }}
+          style={{ marginTop: '10px', style: remove ? 'block' : 'none' }}
         >
-          Remove
+          <Icon icon="trash" style={{ marginRight: '5px', display: 'block' }} />
+          {textRemove}
         </Button>
       </>
     )
   }
 
   // ---> Component
-  if (_props.imageSrc) {
+  if (url) {
     return (
       <>
         <MediaUpload
-          onSelect={(_image) => {
-            onFileSelect(_image, index)
+          onSelect={(_media) => {
+            onFileSelect(_media, index)
           }}
           value={1}
           render={({ open }) => {
-            return (
-              <>
+            if (type === 'image') {
+              // // // // // // // // // // // // // // //
+              // IMAGE
+              return (
                 <div
-                  className="cb__image__upload--uploaded"
+                  className="cb__media--uploaded"
                   style={{
                     width: _props.width,
                     height: _props.height,
                   }}
                 >
-                  <img src={_props.imageSrc} onClick={open} />
+                  <img src={url} onClick={open} />
                 </div>
-                {removeImage ? <DeleteButton /> : ''}
-              </>
-            )
+              )
+            } else if (type === 'video') {
+              return (
+                // // // // // // // // // // // // // // //
+                // VIDEO
+                <div
+                  className="cb__media--uploaded"
+                  style={{
+                    width: _props.width,
+                    height: _props.height,
+                  }}
+                >
+                  <video onClick={open} controls key={url}>
+                    <source src={url} type="video/mp4" />
+                  </video>
+                </div>
+              )
+            } else if (type === 'file') {
+              // // // // // // // // // // // // // // //
+              // FILE
+              return (
+                <div className="cb__media--uploaded" onClick={open}>
+                  <p>
+                    <Icon icon="media-default" />
+                    <u>{filename}</u>
+                  </p>
+                </div>
+              )
+            }
           }}
         />
+        {/* Button */}
+        {remove ? <DeleteButton /> : ''}
       </>
     )
   } else {
     return (
       <MediaUpload
-        onSelect={(_image) => {
-          onFileSelect(_image, index)
+        onSelect={(_media) => {
+          onFileSelect(_media, index)
         }}
         value={1}
         render={({ open }) => (
           <Button onClick={open} isSecondary>
-            <Icon icon="upload" />
-            {_props.buttonName}
+            <Icon icon="upload" style={{ marginRight: '5px' }} />
+            {textAdd}
           </Button>
         )}
       />
     )
   }
+}
+
+// // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // //
+// INFO
+
+export function Info(_props) {
+  return (
+    <>
+      <p className="cb__info">
+        <Icon icon="info" />
+        {_props.children}
+      </p>
+    </>
+  )
 }

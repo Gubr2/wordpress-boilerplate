@@ -9,7 +9,7 @@
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  font-family: $fontFamily;
+  font-family: var(--wp--preset--color--primary);
 }
 
 button,
