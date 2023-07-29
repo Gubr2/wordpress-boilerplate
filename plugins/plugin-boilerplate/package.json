@@ -8,8 +8,9 @@
     "y": "blocks/boilerplateadditional/boilerplateadditional.js blocks/boilerplateadditional/boilerplateadditional-frontend.js"
   },
   "scripts": {
-    "build": "wp-scripts build blocks/global.js $npm_package_config_x $npm_package_config_y",
-    "start": "wp-scripts start blocks/global.js $npm_package_config_x $npm_package_config_y"
+    "build": "wp-scripts build $npm_package_config_x $npm_package_config_y blocks/global.js",
+    "start": "wp-scripts start $npm_package_config_x $npm_package_config_y blocks/global.js",
+    "block": "sh create-block.sh"
   },
   "keywords": [],
   "author": "",
