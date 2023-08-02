@@ -1,0 +1,14 @@
+{
+  "name": "wp-content",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "theme": "cd themes/theme-boilerplate && npm start",
+    "plugin": "cd plugins/blocks-boilerplate && npm start",
+    "start": "concurrently \"npm run theme\" \"npm run plugin\" "
+  },
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

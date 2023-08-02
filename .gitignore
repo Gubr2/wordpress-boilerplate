@@ -14,5 +14,5 @@ vendor
 !index.php
 
 # Folder to not ignore
-!/plugins/plugin-boilerplate
+!/plugins/blocks-boilerplate
 !/themes/theme-boilerplate

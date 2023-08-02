@@ -1,0 +1,808 @@
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Button
+.wpforms-form input[type='submit'],
+.wpforms-form button[type='submit'] {
+  @include button;
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Form Title and Description
+.wpforms-form .wpforms-title {
+}
+// Form Description
+.wpforms-form .wpforms-description {
+}
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Multi-Page Progress Indicator
+// (!) Note: To change the green fill color of the progress indicator, please use the multi-page options in the form builder.
+
+// Progress Indicator Page Title
+span.wpforms-page-indicator-page-title {
+}
+
+// Progress Indicator Steps
+span.wpforms-page-indicator-steps {
+}
+
+// Progress Indicator Current Step
+span.wpforms-page-indicator-steps-current {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Progress Indicator Progress Bar
+// Progress Bar
+.wpforms-form .wpforms-page-indicator.progress .wpforms-page-indicator-page-progress-wrap {
+}
+
+// Progress Indicator Progress Bar (Fill Only)
+.wpforms-form .wpforms-page-indicator.progress .wpforms-page-indicator-page-progress {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Progress Indicator: Circles
+// Progress Indicator Circles
+
+// Step Circles (Colors Apply to Non-Active Only)
+.wpforms-form .wpforms-page-indicator.circles .wpforms-page-indicator-page-number {
+}
+
+// Current Step Circle
+.wpforms-form .wpforms-page-indicator.circles .active .wpforms-page-indicator-page-number {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Progress Indicator Connector
+// Progress Indicator Connector
+
+// Step Sections
+.wpforms-form .wpforms-page-indicator.connector .wpforms-page-indicator-page {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Global Form Field Selectors
+//All Field Labels
+.wpforms-form .wpforms-field-label {
+}
+
+// All Field Sublabels
+.wpforms-form .wpforms-field-sublabel {
+}
+
+// All Field Descriptions
+.wpforms-form .wpforms-field-description {
+}
+
+// Boxes Around All Input Fields
+.wpforms-container input[type='date'],
+.wpforms-container input[type='datetime'],
+.wpforms-container input[type='datetime-local'],
+.wpforms-container input[type='email'],
+.wpforms-container input[type='month'],
+.wpforms-container input[type='number'],
+.wpforms-container input[type='password'],
+.wpforms-container input[type='range'],
+.wpforms-container input[type='search'],
+.wpforms-container input[type='tel'],
+.wpforms-container input[type='text'],
+.wpforms-container input[type='time'],
+.wpforms-container input[type='url'],
+.wpforms-container input[type='week'],
+.wpforms-container select,
+.wpforms-container textarea {
+}
+
+// Padding Between All Fields
+.wpforms-form .wpforms-field {
+}
+
+// All Small Input Fields
+.wpforms-container input.wpforms-field-small,
+.wpforms-container select.wpforms-field-small,
+.wpforms-container .wpforms-field-row.wpforms-field-small {
+}
+
+// All Medium Input Fields
+.wpforms-container input.wpforms-field-medium,
+.wpforms-container select.wpforms-field-medium,
+.wpforms-container .wpforms-field-row.wpforms-field-medium {
+}
+
+// All Large Input Fields
+.wpforms-container input.wpforms-field-large,
+.wpforms-container select.wpforms-field-large,
+.wpforms-container .wpforms-field-row.wpforms-field-large {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Confirmation Message
+// Confirmation message
+
+.wpforms-confirmation-container-full {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Required Fields
+// ‘Required’ Asterisk
+
+//Required field asterisk
+.wpforms-form .wpforms-required-label {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Validation Errors
+// Validation error
+
+// Field Box
+.wpforms-form .wpforms-field input.wpforms-error,
+.wpforms-form .wpforms-field textarea.wpforms-error,
+.wpforms-form .wpforms-field select.wpforms-error {
+}
+
+// Validation Message
+.wpforms-container label.wpforms-error {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Standard Fields
+// Single Line Text
+// Single Line Text field
+
+// Single Line Text Padding
+.wpforms-form .wpforms-field.wpforms-field-text {
+}
+
+// Single Line Text Label
+.wpforms-form .wpforms-field.wpforms-field-text .wpforms-field-label {
+}
+
+// Single Line Text Input Box
+.wpforms-form .wpforms-field.wpforms-field-text input {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Paragraph Text
+// Paragraph text field
+
+// Paragraph Text Padding
+.wpforms-form .wpforms-field.wpforms-field-textarea {
+}
+
+// Paragraph Text Label
+.wpforms-form .wpforms-field.wpforms-field-textarea .wpforms-field-label {
+}
+
+// Paragraph Input Box
+.wpforms-form .wpforms-field.wpforms-field-textarea textarea {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Dropdown (Classic Style)
+// Dropdown field
+
+// Dropdown Padding
+.wpforms-form .wpforms-field.wpforms-field-select.wpforms-field-select-style-classic {
+}
+
+// Dropdown Label
+.wpforms-form .wpforms-field.wpforms-field-select.wpforms-field-select-style-classic .wpforms-field-label {
+}
+
+// Dropdown Box
+.wpforms-form .wpforms-valid {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Dropdown (Modern Style)
+// Dropdown field
+
+// Dropdown Padding
+.wpforms-form .wpforms-field.wpforms-field-select.wpforms-field-select-style-modern {
+}
+
+// Dropdown Label
+.wpforms-form .wpforms-field.wpforms-field-select.wpforms-field-select-style-modern .wpforms-field-label {
+}
+
+// Dropdown Box
+.wpforms-form .choices__inner {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Multiple Choice
+// Multiple Choice field
+
+// Multiple Choice Field Padding
+.wpforms-form .wpforms-field.wpforms-field-radio {
+}
+
+// Multiple Choice Label
+.wpforms-form .wpforms-field.wpforms-field-radio .wpforms-field-label {
+}
+
+// Multiple Choice Option Labels
+.wpforms-form .wpforms-field.wpforms-field-radio ul li .wpforms-field-label-inline {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Checkboxes
+// Checkboxes field
+
+// Checkboxes Padding
+.wpforms-form .wpforms-field.wpforms-field-checkbox {
+}
+
+// Checkboxes Label
+.wpforms-form .wpforms-field.wpforms-field-checkbox .wpforms-field-label {
+}
+
+// Checkbox Option Labels
+.wpforms-form .wpforms-field.wpforms-field-checkbox ul li .wpforms-field-label-inline {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Numbers
+// Numbers field
+
+// Numbers Padding
+.wpforms-form .wpforms-field.wpforms-field-number {
+}
+
+// Numbers Label
+.wpforms-form .wpforms-field.wpforms-field-number .wpforms-field-label {
+}
+
+// Numbers Input Box
+.wpforms-form .wpforms-field.wpforms-field-number input {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Name
+// Name field
+
+// First Name Input Box
+.wpforms-form input[type='text'].wpforms-field-name-first {
+}
+
+// Middle Name Input Box
+.wpforms-form input[type='text'].wpforms-field-name-middle {
+}
+
+// Last Name Input Box
+.wpforms-form input[type='text'].wpforms-field-name-last {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Email
+// Email field
+
+// Email Padding
+.wpforms-form .wpforms-field.wpforms-field-email {
+}
+
+// Email Label
+.wpforms-form .wpforms-field.wpforms-field-email .wpforms-field-label {
+}
+
+// Email Input Box (Primary Only)
+.wpforms-form input[type='email'].wpforms-field-email-primary {
+}
+
+// Email Input Box (Confirm Email Only)
+.wpforms-form input[type='email'].wpforms-field-email-confirmation {
+}
+
+// Email Sublabels
+.wpforms-form .wpforms-field.wpforms-field-email .wpforms-field-sublabel {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Number Slider
+// Number slider field
+
+// Number Slider Padding
+.wpforms-form .wpforms-field.wpforms-field-number-slider {
+}
+
+// Number Slider Label
+.wpforms-form .wpforms-field.wpforms-field-number-slider .wpforms-field-label {
+}
+
+// Number Slider Bar
+.wpforms-form .wpforms-field.wpforms-field-number-slider input[type='range'] {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> GDPR Agreement
+// GDPR Agreement field
+
+// GDPR Agreement Padding
+.wpforms-form .wpforms-field.wpforms-field-gdpr-checkbox {
+}
+
+// GDPR Agreement Label
+.wpforms-form .wpforms-field.wpforms-field-gdpr-checkbox .wpforms-field-label {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Fancy Fields
+// Phone
+// Phone field
+
+// Phone Padding
+.wpforms-form .wpforms-field.wpforms-field-phone {
+}
+
+// Phone Label
+.wpforms-form .wpforms-field.wpforms-field-phone .wpforms-field-label {
+}
+
+// Phone Input Box
+.wpforms-form .wpforms-field.wpforms-field-phone input {
+}
+
+// Country List Dropdown (Smart Format)
+.wpforms-form .wpforms-field.wpforms-field-phone .iti__country-list {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Address (US or International)
+// Address field
+
+// Address Padding
+.wpforms-form .wpforms-field.wpforms-field-address {
+}
+
+// Address Label
+.wpforms-form .wpforms-field.wpforms-field-address .wpforms-field-label {
+}
+
+// Address Input Boxes
+.wpforms-form .wpforms-field.wpforms-field-address input {
+}
+
+// Address Dropdown (US Scheme: State)
+.wpforms-form .wpforms-field.wpforms-field-address select.wpforms-field-address-state {
+}
+
+// Address Dropdown (International Scheme: Country)
+.wpforms-form .wpforms-field.wpforms-field-address select.wpforms-field-address-country {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Date/Time
+// Date Time field
+
+// Date/Time Padding
+.wpforms-form .wpforms-field.wpforms-field-date-time {
+}
+
+// Date/Time Label
+.wpforms-form .wpforms-field.wpforms-field-date-time .wpforms-field-label {
+}
+
+// Date/Time Input Box
+.wpforms-form .wpforms-field.wpforms-field-date-time input {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Date/Time Date Picker: Whole Calendar
+// Date picker calendar
+
+.flatpickr-calendar {
+}
+
+// Date/Time Date Picker: Current Date on Calendar
+.flatpickr-day.today {
+}
+
+// Date/Time Date Picker: Past and Next Month Days on Calendar
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Date/Time: Time Picker
+// Time picker
+
+.ui-timepicker-wrapper {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> File Upload
+// File Upload field
+
+// File Upload Padding
+.wpforms-form .wpforms-field.wpforms-field-file-upload {
+}
+
+// File Upload Label
+.wpforms-form .wpforms-field.wpforms-field-file-upload .wpforms-field-label {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Website/URL
+// Website URL field
+
+// Website/URL  Padding
+.wpforms-form .wpforms-field.wpforms-field-url {
+}
+
+// Website/URL Label
+.wpforms-form .wpforms-field.wpforms-field-url .wpforms-field-label {
+}
+
+// Website/URL Input Box
+.wpforms-form .wpforms-field.wpforms-field-url input {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Password
+// Password field
+
+// Password Padding
+.wpforms-form .wpforms-field.wpforms-field-password {
+}
+
+// Password Label
+.wpforms-form .wpforms-field.wpforms-field-password .wpforms-field-label {
+}
+
+// Password Sublabels
+.wpforms-form .wpforms-field.wpforms-field-password .wpforms-field-sublabel {
+}
+
+// Password Input Box
+.wpforms-form .wpforms-field.wpforms-field-password input {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Page Break
+// Next-button
+.wpforms-form .wpforms-page-button.wpforms-page-next {
+}
+
+// Previous button
+.wpforms-form .wpforms-page-button.wpforms-page-prev {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Section Divider
+// Section Divider field
+
+// Section Divider Padding
+.wpforms-form .wpforms-field.wpforms-field-divider {
+}
+
+// Section Divider Title
+.wpforms-form .wpforms-field.wpforms-field-divider h3 {
+}
+
+// Section Divider Description
+.wpforms-form .wpforms-field.wpforms-field-divider .wpforms-field-description {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Entry Preview
+// Entry preview
+
+// Entry Preview Padding
+.wpforms-form .wpforms-field.wpforms-field-entry-preview {
+}
+
+// Entry Preview Notice
+.wpforms-form .wpforms-field.wpforms-field-entry-preview .wpforms-entry-preview-notice {
+}
+
+// Entry Preview Table
+.wpforms-form .wpforms-field.wpforms-field-entry-preview .wpforms-entry-preview-basic {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> HTML
+// HTML Padding
+.wpforms-form .wpforms-field.wpforms-field-html {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Content
+// Content Input Box
+.wpforms-form .wpforms-field.wpforms-field-content {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Rating
+// Rating-field-stars
+
+// Rating Padding
+.wpforms-form .wpforms-field.wpforms-field-rating {
+}
+
+// Rating Label
+.wpforms-form .wpforms-field.wpforms-field-rating .wpforms-field-label {
+}
+
+// Rating Item Padding
+.wpforms-form .wpforms-field-rating-item {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Custom Captcha
+// Captcha field
+
+// Custom Captcha Padding
+.wpforms-form .wpforms-field.wpforms-field-captcha {
+}
+
+// Custom Captcha Label
+.wpforms-form .wpforms-field.wpforms-field-captcha .wpforms-field-label {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Rich Text
+// Rich Text field
+
+// Rich Text Padding
+.wpforms-form .wpforms-field.wpforms-field-richtext {
+}
+
+// Rich Text Label
+.wpforms-form .wpforms-field.wpforms-field-richtext .wpforms-field-label {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Signature
+// Signature field
+
+// Signature Padding
+.wpforms-form .wpforms-field.wpforms-field-signature {
+}
+// Signature Label
+.wpforms-form .wpforms-field.wpforms-field-signature .wpforms-field-label {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Likert Scale
+// Likert Scale field
+
+// Likert Scale Padding
+.wpforms-form .wpforms-field.wpforms-field-likert_scale {
+}
+
+// Likert Scale Label
+.wpforms-form .wpforms-field.wpforms-field-likert_scale .wpforms-field-label {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Net Promoter Score
+// Net-promoter-score-field
+
+// Net Promoter Score Padding
+.wpforms-form .wpforms-field.wpforms-field-net_promoter_score {
+}
+
+// Net Promoter Score Label
+.wpforms-form .wpforms-field.wpforms-field-net_promoter_score .wpforms-field-label {
+}
+
+// Net Promoter Score Table
+.wpforms-form .wpforms-field.wpforms-field-net_promoter_score table {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Payment Fields
+// Single Item
+// Single Item field
+
+// Single Item Padding
+.wpforms-form .wpforms-field.wpforms-field-payment-single {
+}
+
+// Single Item Label
+.wpforms-form .wpforms-field.wpforms-field-payment-single .wpforms-field-label {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Multiple Items
+// Multiple Items field
+
+// Multiple Items Padding
+.wpforms-form .wpforms-field.wpforms-field-payment-multiple {
+}
+
+// Multiple Items Label
+.wpforms-form .wpforms-field.wpforms-field-payment-multiple .wpforms-field-label {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Checkbox Items
+// Checkbox-items
+
+// Checkbox Items Padding
+.wpforms-form .wpforms-field.wpforms-field-payment-checkbox {
+}
+
+// Checkbox Items Label
+.wpforms-form .wpforms-field.wpforms-field-payment-checkbox .wpforms-field-label {
+}
+
+// Checkbox Item Labels
+.wpforms-form .wpforms-field.wpforms-field-payment-checkbox ul li .wpforms-field-label-inline {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Dropdown Items
+// Dropdown Items field
+
+// Dropdown Items Padding
+.wpforms-form .wpforms-field.wpforms-field-payment-select {
+}
+
+// Dropdown Items Label
+.wpforms-form .wpforms-field.wpforms-field-payment-select .wpforms-field-label {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Stripe Credit Card
+// Stripe credit card field
+
+// Stripe Credit Card Padding
+.wpforms-form .wpforms-field.wpforms-field-stripe-credit-card {
+}
+
+// Stripe Credit Card Label
+.wpforms-form .wpforms-field.wpforms-field-stripe-credit-card .wpforms-field-label {
+}
+
+// Stripe Credit Card Sublabels
+.wpforms-form .wpforms-field.wpforms-field-stripe-credit-card .wpforms-field-sublabel {
+}
+
+// Stripe Card Number Input Box
+.wpforms-form .wpforms-field.wpforms-field-stripe-credit-card .wpforms-field-stripe-credit-card-cardnumber {
+}
+
+// Stripe Name on Card Input Box
+.wpforms-form .wpforms-field.wpforms-field-stripe-credit-card input[type='text'] {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Square
+// Square field
+
+// Square Padding
+.wpforms-form .wpforms-field.wpforms-field-square {
+}
+
+// Square Label
+.wpforms-form .wpforms-field.wpforms-field-square .wpforms-field-label {
+}
+
+// Square Sublabels
+.wpforms-form .wpforms-field.wpforms-field-square .wpforms-field-sublabel {
+}
+
+// Square Card Details Input Box
+.wpforms-form .wpforms-field.wpforms-field-square .sq-card-component {
+}
+
+// Square Name on Card Input Box
+.wpforms-form .wpforms-field.wpforms-field-square .wpforms-field-square-cardname {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Authorize.Net
+// Authorize.Net field
+
+// Authorize.Net Padding
+.wpforms-form .wpforms-field.wpforms-field-authorize_net {
+}
+
+// Authorize.Net Label
+.wpforms-form .wpforms-field.wpforms-field-authorize_net .wpforms-field-label {
+}
+
+// Authorize.Net Sublabels
+.wpforms-form .wpforms-field.wpforms-field-authorize_net .wpforms-field-sublabel {
+}
+
+// Authorize.Net Card Number Input Box
+.wpforms-form .wpforms-field.wpforms-field-authorize_net .wpforms-field-authorize_net-cardnumber {
+}
+
+// Authorize.Net Card Month and Year
+.wpforms-form .wpforms-field.wpforms-field-authorize_net select {
+}
+
+// Authorize.Net Security Code Input Box
+.wpforms-form .wpforms-field.wpforms-field-authorize_net .wpforms-field-authorize_net-code .wpforms-field-authorize_net-cardcvc {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Coupon
+// Coupon field
+
+// Coupon Padding
+.wpforms-form .wpforms-field.wpforms-field-payment-coupon {
+}
+
+// Coupon Label
+.wpforms-form .wpforms-field.wpforms-field-payment-coupon .wpforms-field-label {
+}
+
+// Coupon Input Box
+.wpforms-form .wpforms-field.wpforms-field-payment-coupon input {
+}
+
+// Coupon Apply Button
+.wpforms-form .wpforms-field-payment-coupon-button {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> HOVER
+/* Apply button focus and hover styles */
+.wpforms-form .wpforms-field-payment-coupon-button:hover,
+.wpforms.form .wpforms-field-payment-coupon-button:active,
+.wpforms.form .wpforms-field-payment-coupon-button:focus {
+}
+
+// // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // //
+// ---> Total
+// Total field
+
+// Total Padding
+.wpforms-form .wpforms-field.wpforms-field-payment-total {
+}
+
+// Total Label
+.wpforms-form .wpforms-field.wpforms-field-payment-total .wpforms-field-label {
+}
