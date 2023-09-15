@@ -6,7 +6,7 @@ import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor'
 import { registerBlockType } from '@wordpress/blocks'
 
 // ---> Custom
-import { Wrapper, Item, Label } from '../../components/custom-blocks'
+import { Wrapper, Item, Label, Media } from '../../components/custom-blocks'
 
 // ---> Settings
 const cb_settings = {
@@ -19,8 +19,12 @@ registerBlockType('primary/boilerplate', {
   icon: 'block-default',
   category: 'primary',
   attributes: {
-    variable: {
-      type: 'string',
+    image: {
+      type: 'object',
+      default: {
+        url: '',
+        alt: '',
+      },
     },
   },
   edit: EditComponent,
@@ -35,7 +39,14 @@ function EditComponent(_props) {
   // FUNCTIONS
   //
 
-  // ---> Nahradiť funkciami
+  const onFileSelect = (_image) => {
+    _props.setAttributes({
+      image: {
+        url: _image.url,
+        alt: _image.alt,
+      },
+    })
+  }
 
   //
   // MAIN COMPONENT
@@ -57,8 +68,8 @@ function EditComponent(_props) {
           <RichText inlineToolbar />
         </Item>
         <Item>
-          <Label>Label</Label>
-          <TextControl />
+          <Label>Media</Label>
+          <Media remove url={_props.attributes.image.url} type="image" textAdd="Add Image" textRemove="Remove Image" onFileSelect={onFileSelect} height={'15rem'} />
         </Item>
       </Wrapper>
     </>

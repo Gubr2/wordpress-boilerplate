@@ -5,6 +5,7 @@
 /languages
 /upgrade
 /ai1wm-backups
+wflogs
 node_modules
 vendor
 

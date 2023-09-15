@@ -27,6 +27,7 @@ export default class Menu {
       allLinks: [...document.querySelectorAll('.menu__link')],
       desktopMenuDropdownParents: [...document.querySelectorAll('.menu__desktop .menu__item--parent')],
       mobileMenu: document.querySelector('.menu__mobile'),
+      mobileMenuLinks: [...document.querySelectorAll('.menu__mobile .menu__link')],
       mobileMenuIcon: document.querySelector('.menu__mobile__icon'),
       mobileMenuIconLines: [...document.querySelectorAll('.menu__mobile__icon__line')],
       mobileMenuDropdownParents: [...document.querySelectorAll('.menu__mobile .menu__item--parent')],
@@ -38,8 +39,8 @@ export default class Menu {
 
   init(_settings) {
     this.handleMobileMenu()
+    this.handleMobileLinks()
     this.handleMobileDropdowns()
-    this.handleSmoothHashScroll()
     this.handleDesktopParentsClick(_settings)
     this.removeHashFromCurrent()
   }
@@ -70,6 +71,17 @@ export default class Menu {
         _parent.querySelector('.menu__item--parent__link').style.cursor = 'default'
       })
     }
+  }
+
+  handleMobileLinks() {
+    this.selectors.mobileMenuLinks.forEach((_link) => {
+      _link.addEventListener('click', () => {
+        this.animateMenu('out')
+        this.animateIcon('out')
+        document.documentElement.style.overflowY = 'scroll'
+        this.flags.mobileMenu = true
+      })
+    })
   }
 
   handleMobileDropdowns() {
@@ -125,7 +137,7 @@ export default class Menu {
       gsap.to(this.selectors.mobileMenuIconLines[0], {
         y: '-50%',
         rotate: 45,
-        duration: 1,
+        duration: 0.5,
         ease: 'expo.inOut',
         overwrite: true,
       })
@@ -133,7 +145,7 @@ export default class Menu {
       gsap.to(this.selectors.mobileMenuIconLines[1], {
         y: '-50%',
         rotate: -45,
-        duration: 1,
+        duration: 0.5,
         ease: 'expo.inOut',
         overwrite: true,
       })
@@ -142,7 +154,7 @@ export default class Menu {
       gsap.to(this.selectors.mobileMenuIconLines[0], {
         y: '100%',
         rotate: 0,
-        duration: 1,
+        duration: 0.5,
         ease: 'expo.inOut',
         overwrite: true,
       })
@@ -150,7 +162,7 @@ export default class Menu {
       gsap.to(this.selectors.mobileMenuIconLines[1], {
         y: '-200%',
         rotate: 0,
-        duration: 1,
+        duration: 0.5,
         ease: 'expo.inOut',
         overwrite: true,
       })
@@ -195,18 +207,6 @@ export default class Menu {
 
   // // // // // // // // // // // // // // // // // // // // //
   // HASH
-
-  handleSmoothHashScroll() {
-    this.selectors.allLinks.forEach((_link) => {
-      _link.addEventListener('click', (_e) => {
-        if (_link.hash && _link.pathname == window.location.pathname) {
-          _e.preventDefault()
-
-          document.querySelector(_link.hash).scrollIntoView({ behavior: 'smooth' })
-        }
-      })
-    })
-  }
 
   removeHashFromCurrent() {
     this.selectors.allLinks.forEach((_link) => {

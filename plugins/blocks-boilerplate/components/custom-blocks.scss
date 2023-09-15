@@ -34,6 +34,9 @@ $color--hover: #f0f0f0;
     &:hover {
       background-color: $color--hover;
     }
+    &--additional {
+      padding: 20px !important;
+    }
   }
   // ---> Item
   .cb__item {
@@ -55,14 +58,14 @@ $color--hover: #f0f0f0;
   .cb__wrapper {
     padding: 30px 20px 10px 20px;
     border: none;
-    .dashicon {
-      display: none;
-    }
     .cb__name {
       cursor: default;
       color: var(--wp--preset--color--black);
-      padding: 10px 0;
+      padding: 10px 0px;
       font-weight: 400;
+      .dashicon {
+        display: none;
+      }
       &:hover {
         background-color: inherit;
       }
@@ -81,15 +84,7 @@ $color--hover: #f0f0f0;
   // ---> Additional Wrapper
   &--additional {
     border: 1px solid var(--wp--preset--color--black) !important;
-    padding: 20px !important;
-    .cb__name {
-      padding: 20px !important;
-    }
-    // .cb__item {
-    //   &:nth-child(1) {
-    //     margin-top: 30px !important;
-    //   }
-    // }
+    padding: 40px 20px 20px 20px !important;
   }
 
   // ---> Add Button Fix
@@ -118,7 +113,7 @@ $color--hover: #f0f0f0;
   cursor: pointer;
   overflow: hidden;
   img {
-    position: absolute;
+    // position: absolute;
     left: 0;
     right: 0;
     width: 100%;
@@ -126,7 +121,7 @@ $color--hover: #f0f0f0;
     object-fit: cover;
   }
   video {
-    position: absolute;
+    // position: absolute;
     left: 0;
     right: 0;
     width: 100%;
@@ -151,9 +146,10 @@ $color--hover: #f0f0f0;
   font-size: 13px;
   font-weight: 500;
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   .dashicon {
     display: block !important;
     margin-right: 5px;
+    transform: translateY(-2px);
   }
 }

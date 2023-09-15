@@ -20,7 +20,7 @@ export function Wrapper(_props) {
   return (
     <div className={`cb__wrapper ${_props.isAdditional ? 'cb__wrapper--additional' : ''}`} draggable>
       {_props.name ? (
-        <div className="cb__name" onClick={handleOpen}>
+        <div className={`cb__name ${_props.isAdditional ? 'cb__name--additional' : ''}`} onClick={handleOpen}>
           <p>{_props.name}</p>
           <Icon icon={isOpen ? 'arrow-up-alt2' : 'arrow-down-alt2'} />
         </div>
@@ -106,7 +106,7 @@ export function Media(_props) {
                     height: _props.height,
                   }}
                 >
-                  <img src={url} onClick={open} />
+                  <img src={url} onClick={open} style={{ position: `${_props.height ? 'absolute' : 'relative'}` }} />
                 </div>
               )
             } else if (type === 'video') {
@@ -120,7 +120,7 @@ export function Media(_props) {
                     height: _props.height,
                   }}
                 >
-                  <video onClick={open} controls key={url}>
+                  <video onClick={open} controls key={url} style={{ position: `${_props.height ? 'absolute' : 'relative'}` }}>
                     <source src={url} type="video/mp4" />
                   </video>
                 </div>
@@ -170,7 +170,7 @@ export function Info(_props) {
     <>
       <p className="cb__info">
         <Icon icon="info" />
-        {_props.children}
+        <span>{_props.children}</span>
       </p>
     </>
   )

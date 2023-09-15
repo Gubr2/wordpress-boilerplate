@@ -10,6 +10,10 @@
       "contentSize": "840px"
     },
     "color": {
+      "defaultPalette": false,
+      "background": false,
+      "text": false,
+      "link": false,
       "palette": [
         {
           "slug": "primary",
@@ -30,7 +34,11 @@
 					"slug": "system-fonts",
 					"name": "System fonts"
 				}
-			]
+			],
+      "customFontSize": false,
+      "fontWeight": false,
+      "fontStyle": false,
+      "fontSizes": []
     }
   },
   "styles": {

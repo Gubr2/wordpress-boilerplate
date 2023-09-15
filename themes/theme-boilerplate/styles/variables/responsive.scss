@@ -1,11 +1,7 @@
 $breakpoints: (
-  xsm: 425px,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1440px,
-  menu: 900px,
+  mobile: 600px,
+  tablet: 992px,
+  menu: 600px,
 ) !default;
 
 @import '../../node_modules/include-media/dist/_include-media.scss';

@@ -38,14 +38,24 @@ add_filter( 'block_categories_all' , function( $categories ) {
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 // BLOCKS
 
-// ---> Template Class
+// ---> Scripts List
+$scriptsList = array();
+$stylesList = array();
 
+// ---> Template Class
 class RegisterBlock {
   function __construct($name, $category) {
 
     // [] Variables
     $this->name = $name;
     $this->category = $category;
+
+    // [] Add to List
+    global $scriptsList;
+    $scriptsList[] = "plugin_{$this->name}-frontend_script";
+
+    global $stylesList;
+    $stylesList[] = "plugin_{$this->name}-frontend_style";
 
     // [] Init Functions
     require_once plugin_dir_path(__FILE__) . "blocks/{$this->name}/{$this->name}.php";
@@ -72,6 +82,36 @@ class RegisterBlock {
     return $name($attributes, $content);
   }
 }
+
+// ---> Add Data Attribute to Script
+function add_attribute_to_script_tag($tag, $handle) {
+
+  global $scriptsList;
+
+  foreach($scriptsList as $defer_script) {
+    if ($defer_script === $handle) {
+      return str_replace(' src', ' data-dynamic-script src', $tag);
+    }
+  }
+  return $tag;
+}
+
+add_filter('script_loader_tag', 'add_attribute_to_script_tag', 10, 2);
+
+// ---> Add Data Attribute to Style
+function add_attribute_to_style_tag($tag, $handle) {
+
+  global $stylesList;
+
+  foreach($stylesList as $defer_style) {
+    if ($defer_style === $handle) {
+      return str_replace(' href', ' data-dynamic-style href', $tag);
+    }
+  }
+  return $tag;
+}
+
+add_filter('style_loader_tag', 'add_attribute_to_style_tag', 10, 2);
 
 // ---> Register
 

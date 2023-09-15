@@ -4,8 +4,12 @@
   "description": "",
   "scripts": {
     "theme": "cd themes/theme-boilerplate && npm start",
+    "theme-build": "cd themes/theme-boilerplate && npm run build",
     "plugin": "cd plugins/blocks-boilerplate && npm start",
-    "start": "concurrently \"npm run theme\" \"npm run plugin\" "
+    "plugin-build": "cd plugins/blocks-boilerplate && npm run build",
+    "start": "concurrently \"npm run theme\" \"npm run plugin\" ",
+    "build": "concurrently \"npm run theme-build\" \"npm run plugin-build\" ",
+    "block": "cd plugins/blocks-boilerplate && npm block"
   },
   "license": "ISC",
   "dependencies": {

@@ -36,8 +36,7 @@ mkdir ./blocks/$name
 # // 
 # //////////////////////////////////////////////////////////////////////
 # PHP
-php="
-<?php
+php="<?php
 
 function $name(\$attributes, \$content) {
   \$context = Timber::context();
@@ -64,8 +63,7 @@ echo "$php" > blocks/$name/$name.php
 if [ "$isPrimary" = true ] ; then
   # //////////////////////////////////////////////////////////////////////
   # ---> Primary
-  js="
-  import './$name.scss'
+  js="import './$name.scss'
 
   // ---> Wordpress
   import { TextControl } from '@wordpress/components'
@@ -73,7 +71,7 @@ if [ "$isPrimary" = true ] ; then
   import { registerBlockType } from '@wordpress/blocks'
 
   // ---> Custom
-  import { Wrapper, Item, Label } from '../../components/custom-blocks'
+  import { Wrapper, Item, Label, Media } from '../../components/custom-blocks'
 
   // ---> Settings
   const cb_settings = {
@@ -86,8 +84,12 @@ if [ "$isPrimary" = true ] ; then
     icon: 'block-default',
     category: 'primary',
     attributes: {
-      variable: {
-        type: 'string',
+      image: {
+        type: 'object',
+        default: {
+          url: '',
+          alt: '',
+        },
       },
     },
     edit: EditComponent,
@@ -102,7 +104,14 @@ if [ "$isPrimary" = true ] ; then
     // FUNCTIONS
     //
 
-    // ---> Nahradiť funkciami
+    const onFileSelect = (_image) => {
+      _props.setAttributes({
+        image: {
+          url: _image.url,
+          alt: _image.alt,
+        },
+      })
+    }
 
     //
     // MAIN COMPONENT
@@ -124,8 +133,8 @@ if [ "$isPrimary" = true ] ; then
             <RichText inlineToolbar />
           </Item>
           <Item>
-            <Label>Label</Label>
-            <TextControl />
+            <Label>Media</Label>
+            <Media remove url={_props.attributes.image.url} type='image' textAdd='Add Image' textRemove='Remove Image' onFileSelect={onFileSelect} height={'15rem'} />
           </Item>
         </Wrapper>
       </>
@@ -151,8 +160,7 @@ if [ "$isPrimary" = true ] ; then
   # //////////////////////////////////////////////////////////////////////
   # ---> Additional
   else 
-  js="
-  import './$name.scss'
+  js="import './$name.scss'
 
   // ---> Wordpress
   import { TextControl } from '@wordpress/components'
@@ -160,7 +168,7 @@ if [ "$isPrimary" = true ] ; then
   import { registerBlockType } from '@wordpress/blocks'
 
   // ---> Custom
-  import { Wrapper, Item, Label } from '../../components/custom-blocks'
+  import { Wrapper, Item, Label, Media } from '../../components/custom-blocks'
 
   // ---> Settings
   const cb_settings = {
@@ -173,8 +181,12 @@ if [ "$isPrimary" = true ] ; then
     icon: 'block-default',
     category: 'additional',
     attributes: {
-      variable: {
-        type: 'string',
+      image: {
+        type: 'object',
+        default: {
+          url: '',
+          alt: '',
+        },
       },
     },
     edit: EditComponent,
@@ -189,7 +201,14 @@ if [ "$isPrimary" = true ] ; then
     // FUNCTIONS
     //
 
-    // ---> Nahradiť funkciami
+    const onFileSelect = (_image) => {
+      _props.setAttributes({
+        image: {
+          url: _image.url,
+          alt: _image.alt,
+        },
+      })
+    }
 
     //
     // MAIN COMPONENT
@@ -197,7 +216,7 @@ if [ "$isPrimary" = true ] ; then
     return (
       <>
         {/* S použitím InnerBlocks */}
-        {/* <Wrapper isAdditional>
+        {/* <Wrapper isAdditional name={cb_settings.title}>
           <Item>
             <Label>Label</Label>
             <InnerBlocks renderAppender={() => <InnerBlocks.ButtonBlockAppender />} />
@@ -205,14 +224,14 @@ if [ "$isPrimary" = true ] ; then
         </Wrapper> */}
 
         {/* Bez použitia InnerBlocks */}
-        <Wrapper isAdditional>
+        <Wrapper isAdditional name={cb_settings.title}>
           <Item>
             <Label>Label</Label>
             <RichText inlineToolbar />
           </Item>
           <Item>
-            <Label>Label</Label>
-            <TextControl />
+            <Label>Media</Label>
+            <Media remove url={_props.attributes.image.url} type="image" textAdd="Add Image" textRemove="Remove Image" onFileSelect={onFileSelect} height={'15rem'} />
           </Item>
         </Wrapper>
       </>
@@ -242,9 +261,7 @@ echo "$js" > blocks/$name/$name.js
 # //////////////////////////////////////////////////////////////////////
 # JS FRONTEND
 
-jsfrontend="
-import './$name-frontend.scss'
-"
+jsfrontend="import './$name-frontend.scss'"
 
 echo "$jsfrontend" > blocks/$name/$name-frontend.js
 
@@ -257,18 +274,14 @@ touch blocks/$name/$name.scss
 # //
 # //////////////////////////////////////////////////////////////////////
 # SCSS FRONTEND
-scssfrontend="
-@import '../../../../themes/$theme_name/styles/variables/responsive.scss';
-"
+scssfrontend="@import '../../../../themes/$theme_name/styles/variables/responsive.scss';"
 
 echo "$scssfrontend" > blocks/$name/$name-frontend.scss
 
 # // 
 # //////////////////////////////////////////////////////////////////////
 # TWIG
-twig="
-<h1>$full_name</h1>
-"
+twig="<h1>$full_name</h1>"
 
 echo "$twig" > blocks/$name/$name.twig
 
