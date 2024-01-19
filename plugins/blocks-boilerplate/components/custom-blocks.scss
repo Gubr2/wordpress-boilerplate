@@ -1,8 +1,10 @@
 $color--primary: #000;
+$color--secondary: #fff;
 $color--horizontal-rule: #e0e0e0;
 $color--input: #949494;
 $color--label: #1e1e1e;
-$color--hover: #f0f0f0;
+$color--hover: rgba(0, 0, 0, 0.05);
+$color--design-component: #e5fff1;
 
 // // // // // // // // // // // // // // // //
 // WRAPPER
@@ -12,6 +14,7 @@ $color--hover: #f0f0f0;
   border-radius: 3px;
   padding: 40px 20px 20px 20px;
   margin: 10px 0;
+  background-color: $color--secondary;
   // ---> Name
   .cb__name {
     box-sizing: border-box;
@@ -26,7 +29,6 @@ $color--hover: #f0f0f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
     transition: 0.1s ease-in-out;
     p {
       margin: 0;
@@ -55,36 +57,41 @@ $color--hover: #f0f0f0;
     font-size: 13px;
   }
   // ---> Wrapper inside wrapper
-  .cb__wrapper {
-    padding: 30px 20px 10px 20px;
-    border: none;
-    .cb__name {
-      cursor: default;
-      color: var(--wp--preset--color--black);
-      padding: 10px 0px;
-      font-weight: 400;
-      .dashicon {
-        display: none;
-      }
-      &:hover {
-        background-color: inherit;
-      }
-    }
-    .cb__content {
-      display: block !important;
-    }
-    .cb__item {
-      margin-top: 10px;
-    }
-    &:not(:last-child) {
-      border-bottom: 1px solid $color--horizontal-rule;
-    }
-  }
+  // .cb__wrapper {
+  //   padding: 30px 20px 10px 20px;
+  //   border: none;
+  //   .cb__name {
+  //     cursor: default;
+  //     color: var(--wp--preset--color--black);
+  //     padding: 10px 0px;
+  //     font-weight: 400;
+  //     .dashicon {
+  //       display: none;
+  //     }
+  //     &:hover {
+  //       background-color: inherit;
+  //     }
+  //   }
+  //   .cb__content {
+  //     display: block !important;
+  //   }
+  //   .cb__item {
+  //     margin-top: 10px;
+  //   }
+  //   &:not(:last-child) {
+  //     border-bottom: 1px solid $color--horizontal-rule;
+  //   }
+  // }
 
   // ---> Additional Wrapper
   &--additional {
     border: 1px solid var(--wp--preset--color--black) !important;
     padding: 40px 20px 20px 20px !important;
+  }
+
+  // ---> Design Component
+  &--design-component {
+    background-color: color-mix(in srgb, var(--wp-admin-theme-color) 7.5%, transparent);
   }
 
   // ---> Add Button Fix

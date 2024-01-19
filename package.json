@@ -9,7 +9,7 @@
     "plugin-build": "cd plugins/blocks-boilerplate && npm run build",
     "start": "concurrently \"npm run theme\" \"npm run plugin\" ",
     "build": "concurrently \"npm run theme-build\" \"npm run plugin-build\" ",
-    "block": "cd plugins/blocks-boilerplate && npm block"
+    "block": "cd plugins/blocks-boilerplate && npm run block"
   },
   "license": "ISC",
   "dependencies": {

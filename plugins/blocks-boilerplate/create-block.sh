@@ -13,16 +13,8 @@ read full_name
 echo "Theme file name:"
 read theme_name
 
-echo "Is the block primary? (Y/N)"
-read primary
-
-primary_lowercase=$(echo "$primary" | tr '[:upper:]' '[:lower:]')
-
-if [ "$primary_lowercase" = "y" ]; then
-  isPrimary=true
-elif [ "$primary_lowercase" = "n" ]; then
-  isPrimary=false
-fi
+echo "Block category name:"
+read category
 
 # + // + // + // + // + // + // + // + // + // + // + // + // 
 # + // + // + // + // + // + // + // + // + // + // + // + // 
@@ -59,201 +51,99 @@ echo "$php" > blocks/$name/$name.php
 # //
 # //////////////////////////////////////////////////////////////////////
 # JS
+js="import './$name.scss'
 
-if [ "$isPrimary" = true ] ; then
-  # //////////////////////////////////////////////////////////////////////
-  # ---> Primary
-  js="import './$name.scss'
+// ---> Wordpress
+import { TextControl } from '@wordpress/components'
+import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor'
+import { registerBlockType } from '@wordpress/blocks'
 
-  // ---> Wordpress
-  import { TextControl } from '@wordpress/components'
-  import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor'
-  import { registerBlockType } from '@wordpress/blocks'
+// ---> Custom
+import { Wrapper, Item, Label, Media } from '../../components/custom-blocks'
 
-  // ---> Custom
-  import { Wrapper, Item, Label, Media } from '../../components/custom-blocks'
+// ---> Settings
+const cb_settings = {
+  title: '$full_name',
+}
 
-  // ---> Settings
-  const cb_settings = {
-    title: '$full_name',
-  }
-
-  // ---> Register
-  registerBlockType('primary/$name', {
-    title: cb_settings.title,
-    icon: 'block-default',
-    category: 'primary',
-    attributes: {
-      image: {
-        type: 'object',
-        default: {
-          url: '',
-          alt: '',
-        },
+// ---> Register
+registerBlockType('$category/$name', {
+  title: cb_settings.title,
+  icon: 'block-default',
+  category: '$category',
+  attributes: {
+    image: {
+      type: 'object',
+      default: {
+        url: '',
+        alt: '',
       },
     },
-    edit: EditComponent,
-    save: SaveComponent,
-  })
+  },
+  edit: EditComponent,
+  save: SaveComponent,
+})
 
-  // // // // // // // // // // // // // // // // // // //
-  // EDIT
+// // // // // // // // // // // // // // // // // // //
+// EDIT
 
-  function EditComponent(_props) {
-    //
-    // FUNCTIONS
-    //
+function EditComponent(_props) {
+  //
+  // FUNCTIONS
+  //
 
-    const onFileSelect = (_image) => {
-      _props.setAttributes({
-        image: {
-          url: _image.url,
-          alt: _image.alt,
-        },
-      })
-    }
-
-    //
-    // MAIN COMPONENT
-    //
-    return (
-      <>
-        {/* S použitím InnerBlocks */}
-        {/* <Wrapper name={cb_settings.title}>
-          <Item>
-            <Label>Label</Label>
-            <InnerBlocks renderAppender={() => <InnerBlocks.ButtonBlockAppender />} />
-          </Item>
-        </Wrapper> */}
-
-        {/* Bez použitia InnerBlocks */}
-        <Wrapper name={cb_settings.title}>
-          <Item>
-            <Label>Label</Label>
-            <RichText inlineToolbar />
-          </Item>
-          <Item>
-            <Label>Media</Label>
-            <Media remove url={_props.attributes.image.url} type='image' textAdd='Add Image' textRemove='Remove Image' onFileSelect={onFileSelect} height={'15rem'} />
-          </Item>
-        </Wrapper>
-      </>
-    )
-  }
-
-  // // // // // // // // // // // // // // // // // // //
-  // // // // // // // // // // // // // // // // // // //
-  // // // // // // // // // // // // // // // // // // //
-
-  // // // // // // // // // // // // // // // // // // //
-  // SAVE
-
-  function SaveComponent() {
-    // ---> S použitím "InnerBlocks"
-    // return <InnerBlocks.Content />
-
-    // ---> Bez použitia "InnerBlocks"
-    return null
-  }
-  "
-
-  # //////////////////////////////////////////////////////////////////////
-  # ---> Additional
-  else 
-  js="import './$name.scss'
-
-  // ---> Wordpress
-  import { TextControl } from '@wordpress/components'
-  import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor'
-  import { registerBlockType } from '@wordpress/blocks'
-
-  // ---> Custom
-  import { Wrapper, Item, Label, Media } from '../../components/custom-blocks'
-
-  // ---> Settings
-  const cb_settings = {
-    title: '$full_name',
-  }
-
-  // ---> Register
-  registerBlockType('additional/$name', {
-    title: cb_settings.title,
-    icon: 'block-default',
-    category: 'additional',
-    attributes: {
+  const onFileSelect = (_image) => {
+    _props.setAttributes({
       image: {
-        type: 'object',
-        default: {
-          url: '',
-          alt: '',
-        },
+        url: _image.url,
+        alt: _image.alt,
       },
-    },
-    edit: EditComponent,
-    save: SaveComponent,
-  })
-
-  // // // // // // // // // // // // // // // // // // //
-  // EDIT
-
-  function EditComponent(_props) {
-    //
-    // FUNCTIONS
-    //
-
-    const onFileSelect = (_image) => {
-      _props.setAttributes({
-        image: {
-          url: _image.url,
-          alt: _image.alt,
-        },
-      })
-    }
-
-    //
-    // MAIN COMPONENT
-    //
-    return (
-      <>
-        {/* S použitím InnerBlocks */}
-        {/* <Wrapper isAdditional name={cb_settings.title}>
-          <Item>
-            <Label>Label</Label>
-            <InnerBlocks renderAppender={() => <InnerBlocks.ButtonBlockAppender />} />
-          </Item>
-        </Wrapper> */}
-
-        {/* Bez použitia InnerBlocks */}
-        <Wrapper isAdditional name={cb_settings.title}>
-          <Item>
-            <Label>Label</Label>
-            <RichText inlineToolbar />
-          </Item>
-          <Item>
-            <Label>Media</Label>
-            <Media remove url={_props.attributes.image.url} type="image" textAdd="Add Image" textRemove="Remove Image" onFileSelect={onFileSelect} height={'15rem'} />
-          </Item>
-        </Wrapper>
-      </>
-    )
+    })
   }
 
-  // // // // // // // // // // // // // // // // // // //
-  // // // // // // // // // // // // // // // // // // //
-  // // // // // // // // // // // // // // // // // // //
+  //
+  // MAIN COMPONENT
+  //
+  return (
+    <>
+      {/* S použitím InnerBlocks */}
+      {/* <Wrapper name={cb_settings.title}>
+        <Item>
+          <Label>Label</Label>
+          <InnerBlocks renderAppender={() => <InnerBlocks.ButtonBlockAppender />} />
+        </Item>
+      </Wrapper> */}
 
-  // // // // // // // // // // // // // // // // // // //
-  // SAVE
+      {/* Bez použitia InnerBlocks */}
+      <Wrapper name={cb_settings.title}>
+        <Item>
+          <Label>Label</Label>
+          <RichText inlineToolbar />
+        </Item>
+        <Item>
+          <Label>Media</Label>
+          <Media remove url={_props.attributes.image.url} type='image' textAdd='Add Image' textRemove='Remove Image' onFileSelect={onFileSelect} height={'15rem'} />
+        </Item>
+      </Wrapper>
+    </>
+  )
+}
 
-  function SaveComponent() {
-    // ---> S použitím "InnerBlocks"
-    // return <InnerBlocks.Content />
+// // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // //
 
-    // ---> Bez použitia "InnerBlocks"
-    return null
-  }
-  "
-  fi
+// // // // // // // // // // // // // // // // // // //
+// SAVE
+
+function SaveComponent() {
+  // ---> S použitím "InnerBlocks"
+  // return <InnerBlocks.Content />
+
+  // ---> Bez použitia "InnerBlocks"
+  return null
+}
+"
 
 echo "$js" > blocks/$name/$name.js
 
@@ -288,11 +178,7 @@ echo "$twig" > blocks/$name/$name.twig
 # | // | // | // | // | // | // | // | // | // | // | // | // 
 # | // | // | // | // | // | // | // | // | // | // | // | // 
 # MODIFY INDEX.PHP
-if [ "$isPrimary" = true ] ; then
-echo "new RegisterBlock('$name', 'primary');" >> index.php
-else 
-echo "new RegisterBlock('$name', 'additional');" >> index.php
-fi
+echo "new RegisterBlock('$name', '$category');" >> index.php
 
 # | // | // | // | // | // | // | // | // | // | // | // | // 
 # | // | // | // | // | // | // | // | // | // | // | // | // 

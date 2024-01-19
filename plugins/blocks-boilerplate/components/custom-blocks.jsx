@@ -7,7 +7,7 @@ import { Button, Icon } from '@wordpress/components'
 // WRAPPER
 
 export function Wrapper(_props) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = _props.isOpened ? useState(true) : useState(false)
 
   const handleOpen = () => {
     if (isOpen) {
@@ -18,11 +18,11 @@ export function Wrapper(_props) {
   }
 
   return (
-    <div className={`cb__wrapper ${_props.isAdditional ? 'cb__wrapper--additional' : ''}`} draggable>
+    <div className={`cb__wrapper ${_props.isAdditional ? 'cb__wrapper--additional' : ''} ${_props.isDesignComponent ? 'cb__wrapper--design-component' : ''}`} draggable>
       {_props.name ? (
-        <div className={`cb__name ${_props.isAdditional ? 'cb__name--additional' : ''}`} onClick={handleOpen}>
+        <div className={`cb__name ${_props.isAdditional ? 'cb__name--additional' : ''}`}>
           <p>{_props.name}</p>
-          <Icon icon={isOpen ? 'arrow-up-alt2' : 'arrow-down-alt2'} />
+          <Icon icon={isOpen ? 'arrow-up-alt2' : 'arrow-down-alt2'} onClick={handleOpen} style={{ cursor: 'pointer' }} />
         </div>
       ) : null}
       <div

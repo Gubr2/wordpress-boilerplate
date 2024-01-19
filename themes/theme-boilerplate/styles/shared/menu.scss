@@ -52,7 +52,7 @@
   }
   &--background {
     padding: 1rem var(--padding);
-    background-color: lightgrey;
+    background-color: var(--wp--preset--color--primary);
   }
 }
 
@@ -130,7 +130,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color--white);
+  background-color: var(--wp--preset--color--secondary);
   padding: var(--padding);
   display: none;
   flex-direction: column;
@@ -185,7 +185,7 @@
   width: 2rem;
   height: 0.2rem;
   position: absolute;
-  background-color: var(--color--primary);
+  background-color: var(--wp--preset--color--primary);
   top: 50%;
   left: 50%;
   &:nth-child(1) {

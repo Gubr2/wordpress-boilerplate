@@ -9,6 +9,7 @@ function ( $exclude_filters ) {
 
   // ---> Main Files
   $exclude_filters[] = '.git';
+  $exclude_filters[] = 'node_modules';
 
   // ---> Theme Files
   $exclude_filters[] = 'themes/' . $theme_name . '/node_modules';

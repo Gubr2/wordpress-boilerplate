@@ -75,8 +75,11 @@ class RegisterBlock {
   }
 
   function renderCallback($attributes, $content) {
-    wp_enqueue_script("plugin_{$this->name}-frontend_script", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.js");
-    wp_enqueue_style("plugin_{$this->name}-frontend_style", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.css");
+    $stylePath = plugin_dir_path(__FILE__) . "build/{$this->name}-frontend.css";
+    wp_enqueue_style("plugin_{$this->name}-frontend_style", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.css", array(), filemtime($stylePath));
+
+    $scriptPath = plugin_dir_path(__FILE__) . "build/{$this->name}-frontend.js";
+    wp_enqueue_script("plugin_{$this->name}-frontend_script", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.js", array(), filemtime($scriptPath));
 
     $name = "{$this->name}";
     return $name($attributes, $content);
@@ -117,3 +120,4 @@ add_filter('style_loader_tag', 'add_attribute_to_style_tag', 10, 2);
 
 new RegisterBlock('boilerplate', 'primary');
 new RegisterBlock('boilerplateadditional', 'additional');
+new RegisterBlock('responsivespacer', 'primary');
