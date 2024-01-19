@@ -28,14 +28,15 @@ $color--design-component: #e5fff1;
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    height: 60px;
     align-items: center;
-    transition: 0.1s ease-in-out;
     p {
       margin: 0;
     }
-    &:hover {
-      background-color: $color--hover;
-    }
+    // &:hover {
+    //   background-color: $color--hover;
+    // }
     &--additional {
       padding: 20px !important;
     }
@@ -97,6 +98,20 @@ $color--design-component: #e5fff1;
   // ---> Add Button Fix
   .block-list-appender {
     position: relative !important;
+  }
+}
+
+.cb__wrapper__icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 3%;
+  &:hover {
+    background-color: $color--hover;
   }
 }
 

@@ -58,7 +58,7 @@ function EditComponent(_props) {
         </Wrapper> */}
 
       {/* Bez použitia InnerBlocks */}
-      <Wrapper isAdditional name={cb_settings.title}>
+      <Wrapper isAdditional isDesignComponent name={cb_settings.title}>
         <Flex gap={10}>
           <FlexBlock>
             <Item>

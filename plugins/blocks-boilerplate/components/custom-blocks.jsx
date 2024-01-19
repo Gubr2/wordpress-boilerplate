@@ -22,7 +22,7 @@ export function Wrapper(_props) {
       {_props.name ? (
         <div className={`cb__name ${_props.isAdditional ? 'cb__name--additional' : ''}`}>
           <p>{_props.name}</p>
-          <Icon icon={isOpen ? 'arrow-up-alt2' : 'arrow-down-alt2'} onClick={handleOpen} style={{ cursor: 'pointer' }} />
+          <Icon className="cb__wrapper__icon" icon={isOpen ? 'arrow-up-alt2' : 'arrow-down-alt2'} onClick={handleOpen} />
         </div>
       ) : null}
       <div
