@@ -31,6 +31,11 @@ add_filter( 'block_categories_all' , function( $categories ) {
     'title' => 'Additional Boilerplate Blocks Category'
   );
 
+  $categories[] = array(
+    'slug'  => 'designcomponent',
+    'title' => 'Design Component Boilerplate Blocks Category'
+  );
+
   return $categories;
 });
 
@@ -120,4 +125,4 @@ add_filter('style_loader_tag', 'add_attribute_to_style_tag', 10, 2);
 
 new RegisterBlock('boilerplate', 'primary');
 new RegisterBlock('boilerplateadditional', 'additional');
-new RegisterBlock('responsivespacer', 'primary');
+new RegisterBlock('responsivespacer', 'designcomponent');

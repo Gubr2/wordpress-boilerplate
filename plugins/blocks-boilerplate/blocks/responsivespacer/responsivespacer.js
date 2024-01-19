@@ -14,10 +14,10 @@ const cb_settings = {
 }
 
 // ---> Register
-registerBlockType('primary/responsivespacer', {
+registerBlockType('designcomponent/responsivespacer', {
   title: cb_settings.title,
   icon: 'block-default',
-  category: 'primary',
+  category: 'designcomponent',
   attributes: {
     desktop: {
       type: 'string',
