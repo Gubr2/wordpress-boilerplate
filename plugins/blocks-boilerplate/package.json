@@ -4,13 +4,11 @@
   "description": "",
   "main": "index.js",
   "config": {
-    "x": "blocks/boilerplate/boilerplate.js blocks/boilerplate/boilerplate-frontend.js",
-    "y": "blocks/boilerplateadditional/boilerplateadditional.js blocks/boilerplateadditional/boilerplateadditional-frontend.js",
     "responsivespacer": "blocks/responsivespacer/responsivespacer.js blocks/responsivespacer/responsivespacer-frontend.js"
   },
   "scripts": {
-    "build": "wp-scripts build $npm_package_config_x $npm_package_config_y $npm_package_config_responsivespacer blocks/global.js",
-    "start": "wp-scripts start $npm_package_config_x $npm_package_config_y $npm_package_config_responsivespacer blocks/global.js",
+    "build": "wp-scripts build $npm_package_config_responsivespacer blocks/global.js",
+    "start": "wp-scripts start $npm_package_config_responsivespacer blocks/global.js",
     "block": "sh create-block.sh"
   },
   "keywords": [],

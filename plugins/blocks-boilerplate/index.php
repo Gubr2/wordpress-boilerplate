@@ -80,8 +80,8 @@ class RegisterBlock {
   }
 
   function renderCallback($attributes, $content) {
-    $stylePath = plugin_dir_path(__FILE__) . "build/{$this->name}-frontend.css";
-    wp_enqueue_style("plugin_{$this->name}-frontend_style", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.css", array(), filemtime($stylePath));
+    // $stylePath = plugin_dir_path(__FILE__) . "build/{$this->name}-frontend.css";
+    // wp_enqueue_style("plugin_{$this->name}-frontend_style", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.css", array(), filemtime($stylePath));
 
     $scriptPath = plugin_dir_path(__FILE__) . "build/{$this->name}-frontend.js";
     wp_enqueue_script("plugin_{$this->name}-frontend_script", plugin_dir_url(__FILE__) . "build/{$this->name}-frontend.js", array(), filemtime($scriptPath));
@@ -90,6 +90,23 @@ class RegisterBlock {
     return $name($attributes, $content);
   }
 }
+
+
+// ---> Get all blocks and enqueue only active styles
+function loadStylesInHeadTag() {
+  $block_types = WP_Block_Type_Registry::get_instance()->get_all_registered();
+
+  foreach($block_types as $key) {
+    if ($key->category == 'custom') {
+      if (has_block($key->name)) {
+        $stylePath = plugin_dir_path(__FILE__) . "build/{$key->render_callback[0]->name}-frontend.css";
+        wp_enqueue_style("plugin_{$key->render_callback[0]->name}-frontend_style", plugin_dir_url(__FILE__) . "build/{$key->render_callback[0]->name}-frontend.css", array(), filemtime($stylePath)); 
+      }
+    }
+  }
+}
+
+add_action('wp_enqueue_scripts', 'loadStylesInHeadTag', 99);  
 
 // ---> Add Data Attribute to Script
 function add_attribute_to_script_tag($tag, $handle) {
@@ -123,6 +140,4 @@ add_filter('style_loader_tag', 'add_attribute_to_style_tag', 10, 2);
 
 // ---> Register
 
-new RegisterBlock('boilerplate', 'primary');
-new RegisterBlock('boilerplateadditional', 'additional');
 new RegisterBlock('responsivespacer', 'designcomponent');

@@ -22,6 +22,7 @@ function wpdocs_allowed_block_types ( $block_editor_context, $editor_context ) {
       'core/spacer',
       'core/columns',
       'core/list',
+      'core/list-item',
     ), $custom
   );
 }

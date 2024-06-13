@@ -12,7 +12,7 @@
     "color": {
       "defaultPalette": false,
       "background": false,
-      "text": false,
+      "text": true,
       "link": false,
       "palette": [
         {

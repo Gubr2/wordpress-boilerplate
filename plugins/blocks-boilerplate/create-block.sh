@@ -72,7 +72,7 @@ registerBlockType('$category/$name', {
   icon: 'block-default',
   category: '$category',
   attributes: {
-    image: {
+    media: {
       type: 'object',
       default: {
         url: '',
@@ -92,11 +92,20 @@ function EditComponent(_props) {
   // FUNCTIONS
   //
 
-  const onFileSelect = (_image) => {
+  const onFileSelect = (_media) => {
+    // Shorten the filename
+    let filename = ''
+
+    if (_media.filename) {
+      filename = _media.filename.length > 50 ? _media.filename.substring(0, 25) + '...' + _media.filename.substring(_media.filename.length - 25) : _media.filename
+    }
+
+    // Set the attributes
     _props.setAttributes({
-      image: {
-        url: _image.url,
-        alt: _image.alt,
+      media: {
+        url: _media.url,
+        alt: _media.alt,
+        filename,
       },
     })
   }
@@ -121,8 +130,8 @@ function EditComponent(_props) {
           <RichText inlineToolbar />
         </Item>
         <Item>
-          <Label>Media</Label>
-          <Media remove url={_props.attributes.image.url} type='image' textAdd='Add Image' textRemove='Remove Image' onFileSelect={onFileSelect} height={'15rem'} />
+          <Label>Image</Label>
+          <Media remove url={_props.attributes.media.url} filename={_props.attributes.media.filename} type='image' textAdd='Add Image' textRemove='Remove Image' onFileSelect={onFileSelect} />
         </Item>
       </Wrapper>
     </>
@@ -137,10 +146,10 @@ function EditComponent(_props) {
 // SAVE
 
 function SaveComponent() {
-  // ---> S použitím "InnerBlocks"
+  // ---> S použitím 'InnerBlocks'
   // return <InnerBlocks.Content />
 
-  // ---> Bez použitia "InnerBlocks"
+  // ---> Bez použitia 'InnerBlocks'
   return null
 }
 "

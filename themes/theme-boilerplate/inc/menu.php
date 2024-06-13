@@ -12,9 +12,8 @@ add_action('after_setup_theme', 'custom_register_menus');
 function add_to_context( $context ) {
 
     // [] Vlastné menu
-    $context['header'] = new \Timber\Menu( 'header' );
-    $context['footer'] = new \Timber\Menu( 'footer' );
-
+    $context['header'] = Timber::get_menu('header');
+    $context['footer'] = Timber::get_menu('footer');
     // [] Custom Logo
     $context['custom_logo_url'] = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
 

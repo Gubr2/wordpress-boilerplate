@@ -1,12 +1,9 @@
 @import './settings.scss';
 
-* {
-  box-sizing: border-box;
-}
-
 html {
   overflow-x: clip;
   font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
   // font-size: calc(100vw / 1920 * 10);
 }
 
