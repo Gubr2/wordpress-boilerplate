@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "boilerplate/interactive",
+  "version": "0.1.0",
+  "title": "Test",
+  "category": "primary",
+  "icon": "block-default",
+  "description": "An interactive block with the Interactivity API",
+  "example": {},
+  "supports": {
+    "interactivity": true
+  },
+  "attributes": {
+    "text": {
+      "type": "string",
+      "default": ""
+    },
+    "media": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "alt": ""
+      }
+    }
+  },
+  "textdomain": "blocks-boilerplate-new",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php",
+  "style": "file:./style-index.css",
+  "viewScriptModule": "file:./view.js"
+}

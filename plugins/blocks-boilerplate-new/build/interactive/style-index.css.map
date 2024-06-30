@@ -1,0 +1,1 @@
+{"version":3,"file":"interactive/style-index.css","mappings":";;;AAAA;EACE;AACF,C","sources":["webpack://blocks-boilerplate-new/./src/interactive/style.scss"],"sourcesContent":[".test {\n  background-color: green;\n}\n"],"names":[],"sourceRoot":""}
