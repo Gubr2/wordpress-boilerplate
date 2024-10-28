@@ -1,6 +1,6 @@
 import './editor.scss'
 
-import { Item, Label, Wrapper, Media } from '../../../blocks-custom/components/custom-blocks'
+import { Item, Label, Wrapper, Media, MediaSingle } from '../../../blocks-custom/components/custom-blocks'
 import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor'
 import metadata from './block.json'
 
@@ -29,8 +29,8 @@ export function Edit(_props) {
           <RichText inlineToolbar onChange={(_value) => _props.setAttributes({ text: _value })} value={_props.attributes.text} />
         </Item>
         <Item>
-          <Label>Image</Label>
-          <Media remove parentProps={_props} attributeName="media" />
+          <Label>Media</Label>
+          <Media parentProps={_props} attributeName={'media'} />
         </Item>
       </Wrapper>
     </div>

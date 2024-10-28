@@ -6,7 +6,7 @@
   "title": "Block Name",
   "category": "primary",
   "icon": "block-default",
-  "description": "Custom block for theme-name",
+  "description": "Custom block for Open Heart",
   "example": {},
   "supports": {
     "html": false
