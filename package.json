@@ -5,10 +5,14 @@
   "scripts": {
     "theme": "cd themes/theme-boilerplate && npm start",
     "theme-build": "cd themes/theme-boilerplate && npm run build",
-    "plugin": "cd plugins/blocks-boilerplate && npm start",
-    "plugin-build": "cd plugins/blocks-boilerplate && npm run build",
-    "start": "concurrently \"npm run theme\" \"npm run plugin\" ",
-    "build": "concurrently \"npm run theme-build\" \"npm run plugin-build\" ",
+    "plugin": "cd plugins/blocks-boilerplate-new && npm start",
+    "plugin-build": "cd plugins/blocks-boilerplate-new && npm run build",
+    "custom-plugin": "cd plugins/blocks-custom && npm start",
+    "custom-plugin:components": "cd plugins/blocks-custom && npm run start:components",
+    "custom-plugin-build": "cd plugins/blocks-custom && npm run build",
+    "custom-plugin-build:components": "cd plugins/blocks-custom && npm run start:components",
+    "start": "concurrently \"npm run theme\" \"npm run plugin\" \"npm run custom-plugin\" \"npm run custom-plugin:components\"",
+    "build": "concurrently \"npm run theme-build\" \"npm run plugin-build\" \"npm run custom-plugin-build\" \"npm run custom-plugin-build:components\"",
     "block": "cd plugins/blocks-boilerplate && npm run block"
   },
   "license": "ISC",

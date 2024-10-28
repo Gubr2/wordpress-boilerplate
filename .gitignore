@@ -16,4 +16,5 @@ vendor
 
 # Folder to not ignore
 !/plugins/blocks-boilerplate
+!/plugins/blocks-boilerplate-new
 !/themes/theme-boilerplate

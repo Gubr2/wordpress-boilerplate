@@ -1,15 +1,15 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "boilerplate/interactive",
+  "name": "plugin-name/block-name",
   "version": "0.1.0",
-  "title": "Test",
+  "title": "Block Name",
   "category": "primary",
   "icon": "block-default",
-  "description": "An interactive block with the Interactivity API",
+  "description": "Custom block for theme-name",
   "example": {},
   "supports": {
-    "interactivity": true
+    "html": false
   },
   "attributes": {
     "text": {
@@ -20,14 +20,16 @@
       "type": "object",
       "default": {
         "url": "",
-        "alt": ""
+        "alt": "",
+        "filename": "",
+        "type": "image"
       }
     }
   },
-  "textdomain": "blocks-boilerplate-new",
+  "textdomain": "block-name",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "render": "file:./render.php",
   "style": "file:./style-index.css",
-  "viewScriptModule": "file:./view.js"
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
 }

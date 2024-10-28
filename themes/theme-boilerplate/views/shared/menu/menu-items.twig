@@ -7,10 +7,10 @@
       <div class="menu__item__dropdown">
         <div class="menu__item__dropdown__container">
           {% for child in item.children %}
-          <div class="menu__item {% if child.current %}menu__item--current{% endif %}">
-            <a href="{{ child.link }}">{{ child.title }}</a>
-          </div>
-        {% endfor %}
+            <div class="menu__item {% if child.current %}menu__item--current{% endif %}">
+              <a href="{{ child.link }}">{{ child.title }}</a>
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>

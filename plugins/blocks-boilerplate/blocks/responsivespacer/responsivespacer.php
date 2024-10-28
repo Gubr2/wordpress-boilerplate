@@ -2,6 +2,7 @@
 
 function responsivespacer($attributes, $content) {
   $context = Timber::context();
+  
   // ---> Block
   $context['block'] = $attributes;
 
